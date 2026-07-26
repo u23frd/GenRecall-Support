@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>문의 — Existential Labs</title>
+<meta name="description" content="GenRecall 사용 중 문제가 있으면 여기로 문의하세요.">
+<link rel="canonical" href="https://existential-labs.com/support.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ink:#16141A; --paper:#F0EFF2; --card:#FFFFFF;
+    --violet:#5B3FA0; --violet-soft:#EDE7F8;
+    --muted:#635E6E; --rule:#D8D5DE;
+    --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.75;
+    letter-spacing:-0.01em;word-break:keep-all;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+  a{color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet-soft)}
+  a:hover{border-bottom-color:var(--violet)}
+  a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px}
+
+  .label{
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 14px;
+  }
+  header{border-bottom:1px solid var(--rule)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0}
+  .brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:0.06em;color:var(--ink);border:0}
+  .brand span{color:var(--violet)}
+  nav{display:flex;gap:20px;font-size:14px}
+  nav a{color:var(--muted);border:0}
+  nav a:hover{color:var(--violet)}
+
+  .head{padding:64px 0 40px}
+  h1{font-size:clamp(26px,5vw,34px);line-height:1.35;font-weight:700;letter-spacing:-0.03em;margin:0 0 20px}
+  p{margin:0 0 16px}
+  .lead{color:var(--muted);max-width:56ch}
+
+  .mailbox{
+    background:var(--card);border:1px solid var(--rule);
+    border-left:3px solid var(--violet);border-radius:0 10px 10px 0;
+    padding:22px 24px;margin:0 0 8px;
+  }
+  .mailbox .addr{font-family:var(--mono);font-size:17px;margin:0 0 10px}
+  .mailbox .note{font-size:14px;color:var(--muted);margin:0}
+
+  section{padding:48px 0;border-top:1px solid var(--rule)}
+  h2{font-size:20px;font-weight:700;letter-spacing:-0.02em;margin:0 0 22px}
+
+  .qa{list-style:none;padding:0;margin:0}
+  .qa li{padding:20px 0;border-top:1px solid var(--rule)}
+  .qa li:first-child{border-top:0;padding-top:0}
+  .q{font-size:16px;font-weight:600;margin:0 0 6px}
+  .a{color:var(--muted);font-size:15px;margin:0}
+
+  .tips{list-style:none;padding:0;margin:0;font-size:15px;color:var(--muted)}
+  .tips li{padding-left:22px;position:relative;margin-bottom:8px}
+  .tips li::before{
+    content:'—';position:absolute;left:0;
+    font-family:var(--mono);color:var(--violet);
+  }
+
+  footer{border-top:1px solid var(--rule);padding:40px 0 64px}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+  .copy{margin-top:14px;font-size:13px;color:var(--muted)}
+
+  @media (max-width:520px){
+    body{font-size:16px}
+    .head{padding:48px 0 32px}
+    section{padding:38px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">EXISTENTIAL<span>·</span>LABS</a>
+    <nav>
+      <a href="/#app">앱</a>
+      <a href="/support.html">문의</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/privacy.html">개인정보</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap head">
+    <p class="label">Support</p>
+    <h1>막히는 데가 있으면 알려주세요.</h1>
+    <p class="lead">GenRecall은 1인이 만들고 있습니다. 문의는 제가 직접 읽고 답장합니다.</p>
+    <div class="mailbox">
+      <p class="addr"><a href="mailto:support@existential-labs.com">support@existential-labs.com</a></p>
+      <p class="note">영업일 기준 2-3일 안에 답장합니다. 답장이 없으면 스팸함을 확인해 주세요.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>메일 보낼 때 함께 적어주시면 빠릅니다</h2>
+      <ul class="tips">
+        <li>어떤 기기를 쓰는지 (예: 갤럭시 S24, 안드로이드 14)</li>
+        <li>앱 버전 (설정 화면 맨 아래에 있습니다)</li>
+        <li>무엇을 하다가 생긴 문제인지</li>
+        <li>화면 캡처 (있으면 훨씬 빠릅니다)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="label">FAQ</p>
+      <h2>자주 묻는 질문</h2>
+      <ul class="qa">
+        <li>
+          <p class="q">채점 결과가 이상한데요.</p>
+          <p class="a">AI 채점은 실수할 수 있습니다. 해설에서 이상한 부분을 직접 지목해 다시 봐달라고 요청할 수 있습니다. 그래도 납득이 안 되면 메일로 보내주세요.</p>
+        </li>
+        <li>
+          <p class="q">구독을 해지하고 싶습니다.</p>
+          <p class="a">Google Play 앱 → 프로필 → 결제 및 정기 결제 → 정기 결제에서 해지합니다. 결제와 환불은 Google Play가 처리하므로, 환불 요청도 Google Play를 통해 진행하는 것이 가장 빠릅니다.</p>
+        </li>
+        <li>
+          <p class="q">기기를 바꾸면 학습 기록이 사라지나요?</p>
+          <p class="a">같은 계정으로 로그인하면 이어집니다.</p>
+        </li>
+        <li>
+          <p class="q">내가 쓴 문장은 어떻게 처리되나요?</p>
+          <p class="a">채점과 복습에 필요한 범위에서 저장하고 처리합니다. 자세한 내용은 <a href="/privacy.html">개인정보처리방침</a>에 적어두었습니다.</p>
+        </li>
+        <li>
+          <p class="q">계정과 데이터를 삭제하고 싶습니다.</p>
+          <p class="a">앱 설정에서 삭제할 수 있습니다. 앱에 접근할 수 없는 상황이면 위 메일로 요청해 주세요.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/">홈</a>
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+    </div>
+    <p class="copy">© 2026 Existential Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

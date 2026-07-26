@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Existential Labs — 언어 출력을 훈련하는 앱을 만듭니다</title>
+<meta name="description" content="Existential Labs는 언어 학습 앱 GenRecall을 만드는 1인 개발 스튜디오입니다.">
+<link rel="canonical" href="https://existential-labs.com/">
+
+<!-- Open Graph: 카톡·슬랙 등에 링크 붙일 때 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Existential Labs">
+<meta property="og:description" content="언어 학습 앱 GenRecall을 만드는 개발 스튜디오">
+<meta property="og:url" content="https://existential-labs.com/">
+<meta property="og:locale" content="ko_KR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ink:#16141A;
+    --paper:#F0EFF2;
+    --card:#FFFFFF;
+    --violet:#5B3FA0;
+    --violet-soft:#EDE7F8;
+    --muted:#635E6E;
+    --rule:#D8D5DE;
+
+    --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.75;
+    letter-spacing:-0.01em;
+    word-break:keep-all;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+
+  a{color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet-soft)}
+  a:hover{border-bottom-color:var(--violet)}
+  a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px}
+
+  /* ── 라벨: 모노스페이스 eyebrow ── */
+  .label{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 14px;
+  }
+
+  /* ── 헤더 ── */
+  header{border-bottom:1px solid var(--rule)}
+  .bar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;padding:22px 0;
+  }
+  .brand{
+    font-family:var(--mono);font-size:14px;font-weight:500;
+    letter-spacing:0.06em;color:var(--ink);border:0;
+  }
+  .brand span{color:var(--violet)}
+  nav{display:flex;gap:20px;font-size:14px}
+  nav a{color:var(--muted);border:0}
+  nav a:hover{color:var(--violet)}
+
+  /* ── 히어로 ── */
+  .hero{padding:80px 0 64px}
+  .hero h1{
+    font-size:clamp(28px,5.6vw,40px);
+    line-height:1.35;
+    font-weight:700;
+    letter-spacing:-0.03em;
+    margin:0 0 24px;
+  }
+  .hero h1 em{font-style:normal;color:var(--violet)}
+  .hero p{color:var(--muted);margin:0 0 16px;max-width:56ch}
+
+  /* ── 섹션 ── */
+  section{padding:56px 0;border-top:1px solid var(--rule)}
+  h2{font-size:21px;font-weight:700;letter-spacing:-0.02em;margin:0 0 20px}
+  h3{font-size:16px;font-weight:600;margin:0 0 6px}
+  p{margin:0 0 16px}
+
+  /* ── 앱 카드 ── */
+  .app{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:14px;
+    padding:28px;
+  }
+  .app-name{font-size:24px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px}
+  .app-tag{color:var(--muted);margin:0 0 24px}
+  .feat{list-style:none;padding:0;margin:0}
+  .feat li{padding:16px 0;border-top:1px solid var(--rule)}
+  .feat li:first-child{border-top:0;padding-top:0}
+  .feat p{color:var(--muted);font-size:15px;margin:0}
+
+  .store{
+    display:inline-block;margin-top:22px;padding:12px 22px;
+    background:var(--ink);color:#fff;border:0;border-radius:8px;
+    font-size:15px;font-weight:600;
+  }
+  .store:hover{background:var(--violet);border:0}
+
+  /* ── 문의 ── */
+  .mail{
+    font-family:var(--mono);font-size:17px;
+  }
+
+  /* ── 시그니처: 사업자정보를 명함처럼 조판 ── */
+  footer{border-top:1px solid var(--rule);padding:48px 0 64px;margin-top:16px}
+  .biz{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--violet);
+    border-radius:0 10px 10px 0;
+    padding:24px 26px;
+    font-family:var(--mono);
+    font-size:13px;
+    line-height:2;
+    color:var(--ink);
+  }
+  .biz dl{display:grid;grid-template-columns:auto 1fr;gap:2px 20px;margin:0}
+  .biz dt{color:var(--muted);white-space:nowrap}
+  .biz dd{margin:0}
+  .foot-links{
+    display:flex;gap:18px;flex-wrap:wrap;
+    margin-top:26px;font-size:14px;
+  }
+  .copy{margin-top:14px;font-size:13px;color:var(--muted)}
+
+  @media (max-width:520px){
+    body{font-size:16px}
+    .hero{padding:56px 0 44px}
+    section{padding:44px 0}
+    .app{padding:22px}
+    .biz dl{grid-template-columns:1fr;gap:0}
+    .biz dt{margin-top:10px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">EXISTENTIAL<span>·</span>LABS</a>
+    <nav>
+      <a href="#app">앱</a>
+      <a href="/support.html">문의</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/privacy.html">개인정보</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="label">Seoul · Independent studio</p>
+    <h1>알아듣는 것과 <em>직접 쓰는 것</em> 사이에는<br>건너야 할 거리가 있습니다.</h1>
+    <p>Existential Labs는 그 거리를 좁히는 언어 학습 도구를 만듭니다. 읽고 듣는 연습은 이미 충분히 많습니다. 부족한 건 스스로 문장을 만들어 보고, 그게 왜 어색한지 바로 알려주는 연습입니다.</p>
+    <p>서울에 기반한 1인 개발 스튜디오입니다.</p>
+  </div>
+
+  <section id="app">
+    <div class="wrap">
+      <p class="label">Product</p>
+      <div class="app">
+        <p class="app-name">GenRecall</p>
+        <p class="app-tag">모국어로 뜻을 보고, 목표 언어로 직접 문장을 씁니다. AI가 채점하고 무엇을 왜 고쳐야 하는지 설명합니다.</p>
+        <ul class="feat">
+          <li>
+            <h3>쓰면서 배우는 방식</h3>
+            <p>보기에서 고르는 문제가 아니라 직접 작문합니다. 떠올려서 쓰는 과정이 기억에 남습니다.</p>
+          </li>
+          <li>
+            <h3>왜 어색한지 설명하는 채점</h3>
+            <p>맞고 틀림만 알려주지 않습니다. 자연스러운 표현과 그 이유를 함께 보여줍니다.</p>
+          </li>
+          <li>
+            <h3>내 수준에 맞춰지는 난이도</h3>
+            <p>레벨 테스트로 시작해, 풀면서 자동으로 조절됩니다.</p>
+          </li>
+        </ul>
+        <!-- TODO: 출시 후 실제 스토어 링크로 교체 -->
+        <a class="store" href="#" aria-disabled="true">Google Play에서 곧 만나요</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2>문의</h2>
+      <p>앱 사용 중 문제가 생겼거나 제안할 것이 있으면 메일로 알려주세요. 영업일 기준 2-3일 안에 답장합니다.</p>
+      <p class="mail"><a href="mailto:support@existential-labs.com">support@existential-labs.com</a></p>
+      <p><a href="/support.html">자주 묻는 질문 보기 →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="label">Business information</p>
+    <div class="biz">
+      <dl>
+        <dt>상호</dt><dd>엑시스텐셜 랩스</dd>
+        <dt>대표자</dt><dd><!-- TODO -->—</dd>
+        <dt>사업장 주소</dt><dd><!-- TODO -->—</dd>
+        <dt>전화</dt><dd><!-- TODO -->—</dd>
+        <dt>이메일</dt><dd>support@existential-labs.com</dd>
+        <dt>사업자등록번호</dt><dd><!-- TODO -->—</dd>
+        <dt>통신판매업신고</dt><dd><!-- TODO 제NNNN-서울OO-NNNNN호 --></dd>
+      </dl>
+    </div>
+    <div class="foot-links">
+      <a href="/privacy.html">개인정보처리방침</a>
+      <a href="/terms.html">이용약관</a>
+      <a href="/support.html">문의</a>
+    </div>
+    <p class="copy">© 2026 Existential Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
