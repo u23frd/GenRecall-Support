@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미리보기 — Existential Labs</title>
+<meta name="description" content="GenRecall 실제 앱 화면 미리보기 — 언어를 고르면 그 언어로 된 화면을 볼 수 있습니다.">
+<link rel="canonical" href="https://existential-labs.com/app.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ink:#16141A; --paper:#F0EFF2; --card:#FFFFFF;
+    --violet:#5B3FA0; --violet-soft:#EDE7F8;
+    --muted:#635E6E; --rule:#D8D5DE;
+    --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.75;
+    letter-spacing:-0.01em;word-break:keep-all;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  a{color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet-soft)}
+  a:hover{border-bottom-color:var(--violet)}
+  a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px}
+
+  .label{
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;
+  }
+
+  header{border-bottom:1px solid var(--rule)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0}
+  .brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:0.06em;color:var(--ink);border:0}
+  .brand span{color:var(--violet)}
+  .nav-side{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  nav{display:flex;gap:20px;font-size:14px}
+  nav a{color:var(--muted);border:0}
+  nav a:hover{color:var(--violet)}
+  nav a.on{color:var(--violet);font-weight:600}
+  .site-lang{
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    border:1px solid var(--rule);border-radius:8px;background:var(--card);
+    padding:6px 8px;cursor:pointer;
+  }
+
+  .intro{padding:52px 0 8px}
+  .intro h1{font-size:clamp(24px,4.6vw,32px);line-height:1.35;font-weight:700;letter-spacing:-0.03em;margin:0 0 12px}
+  .intro h1 em{font-style:normal;color:var(--violet)}
+  .intro p{color:var(--muted);margin:0;max-width:60ch}
+  .intro h1[dir="rtl"],.intro p[dir="rtl"]{text-align:right}
+
+  .controls{padding:26px 0 6px}
+  .ctl-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);margin:18px 0 8px;
+  }
+  .ctl-label:first-child{margin-top:0}
+  .ctl-label[dir="rtl"]{text-align:right}
+
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    appearance:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);
+    font-family:var(--sans);font-size:14.5px;line-height:1;letter-spacing:-0.01em;
+    padding:10px 16px;border-radius:999px;cursor:pointer;transition:border-color .15s,background .15s,color .15s;
+  }
+  .chip:hover{border-color:var(--violet)}
+  .chip.on{background:var(--violet);border-color:var(--violet);color:#fff;font-weight:600}
+  .chip.off{color:var(--muted);background:transparent;opacity:.5;cursor:default}
+  .chip.off:hover{border-color:var(--rule)}
+
+  .now{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    margin:26px 0 4px;padding:14px 18px;
+    background:var(--violet-soft);border-radius:12px;font-size:14.5px;color:var(--ink);
+  }
+  .now b{color:var(--violet)}
+  .now .cnt{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .coming-note{font-size:13px;color:var(--muted);margin:8px 2px 0}
+  .coming-note[dir="rtl"]{text-align:right}
+
+  .rows{padding:10px 0 72px}
+  .row{padding:34px 0 6px}
+  .row + .row{border-top:1px solid var(--rule)}
+  .row-head{margin:0 0 14px}
+  .row-head[dir="rtl"]{text-align:right}
+  .row-title{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+  .row-head[dir="rtl"] .row-title{flex-direction:row-reverse}
+  .row-num{font-family:var(--mono);font-size:12px;color:var(--violet);letter-spacing:0.08em;white-space:nowrap}
+  .row-name{font-size:19px;font-weight:700;letter-spacing:-0.02em;margin:0}
+  .row-desc{
+    font-size:15px;color:var(--muted);margin:0;max-width:60ch;
+    min-height:3.2em;
+    transition:opacity .18s ease;
+  }
+  .row-head[dir="rtl"] .row-desc{margin-left:auto}
+  .row-desc .idx{font-family:var(--mono);font-size:11.5px;color:var(--violet);margin-right:8px}
+  .row-head[dir="rtl"] .row-desc .idx{margin-right:0;margin-left:8px}
+
+  .empty{
+    margin:34px 0 60px;padding:40px 26px;text-align:center;
+    background:var(--card);border:1px dashed var(--rule);border-radius:14px;
+    color:var(--muted);font-size:15px;
+  }
+
+  .car-box{position:relative}
+  .car{
+    display:flex;gap:14px;overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:4px 2px 10px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .car::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 auto;scroll-snap-align:start;cursor:zoom-in}
+  .slide:active{cursor:grabbing}
+  .car[data-device="phone"] .slide{width:min(250px,64vw)}
+  .car[data-device="tablet"] .slide{width:min(560px,84vw)}
+  .slide img{
+    width:100%;display:block;border-radius:20px;
+    border:1px solid var(--rule);
+    box-shadow:0 8px 26px rgba(22,20,26,.10);
+    background:#17151C;
+  }
+  .car[data-device="tablet"] .slide img{border-radius:14px}
+
+  .nav-btn{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);
+    background:rgba(255,255,255,.94);color:var(--ink);
+    font-size:19px;line-height:1;cursor:pointer;display:none;
+    align-items:center;justify-content:center;
+    box-shadow:0 2px 10px rgba(22,20,26,.12);
+    transition:opacity .15s,border-color .15s;
+  }
+  .nav-btn:hover{border-color:var(--violet);color:var(--violet)}
+  .nav-btn.prev{left:-14px}
+  .nav-btn.next{right:-14px}
+  .nav-btn[data-off="1"]{opacity:0;pointer-events:none}
+  @media (hover:hover) and (pointer:fine){ .nav-btn{display:flex} }
+
+  .dots{display:flex;gap:7px;justify-content:center;padding:6px 0 2px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--rule);transition:background .2s,transform .2s}
+  .dots i.on{background:var(--violet);transform:scale(1.25)}
+  .dots[data-single="1"]{visibility:hidden}
+
+  /* 라이트박스 */
+  .lb{
+    position:fixed;inset:0;z-index:50;display:none;
+    align-items:center;justify-content:center;
+    background:rgba(22,20,26,.82);backdrop-filter:blur(6px);
+    padding:28px;
+  }
+  .lb.open{display:flex}
+  .lb img{
+    max-width:min(92vw,1400px);max-height:84vh;width:auto;height:auto;display:block;
+    border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.5);background:#17151C;
+  }
+  .lb-cap{
+    position:fixed;left:0;right:0;bottom:16px;text-align:center;color:#fff;
+    font-size:14.5px;line-height:1.5;text-shadow:0 1px 8px rgba(0,0,0,.7);
+    padding:0 76px;margin:0;
+  }
+  .lb-btn{
+    position:fixed;z-index:51;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:rgba(255,255,255,.14);color:#fff;font-size:22px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb-btn:hover{background:rgba(255,255,255,.30)}
+  .lb-close{top:18px;right:18px}
+  .lb-prev{left:14px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:14px;top:50%;transform:translateY(-50%)}
+  .lb-count{position:fixed;top:28px;left:24px;color:#fff;font-family:var(--mono);font-size:13px;opacity:.85}
+  body.lb-lock{overflow:hidden}
+
+  footer{border-top:1px solid var(--rule);padding:34px 0 54px}
+  footer .copy{font-size:13px;color:var(--muted)}
+
+  @media (max-width:520px){
+    body{font-size:16px}
+    .intro{padding:40px 0 4px}
+    .nav-btn.prev{left:-6px}
+    .nav-btn.next{right:-6px}
+    .row-desc{min-height:3.4em}
+  }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" id="brand-link" href="/">EXISTENTIAL<span>·</span>LABS</a>
+    <div class="nav-side">
+      <nav id="site-nav"></nav>
+      <select class="site-lang" id="site-lang" aria-label="Site language">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap intro">
+    <p class="label">Screenshots</p>
+    <h1 id="intro-title"></h1>
+    <p id="intro-sub"></p>
+  </div>
+
+  <div class="wrap controls">
+    <p class="ctl-label" id="lbl-mylang"></p>
+    <div class="seg" id="lang-seg"></div>
+
+    <p class="ctl-label" id="lbl-learnlang"></p>
+    <div class="seg" id="tgt-seg"></div>
+    <p class="coming-note" id="coming-note"></p>
+
+    <p class="ctl-label" id="lbl-device"></p>
+    <div class="seg" id="dev-seg"></div>
+
+    <div class="now" id="now-line" hidden></div>
+  </div>
+
+  <div class="wrap rows" id="rows"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="copy">© 2026 Existential Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- 라이트박스: 스샷 클릭 → 팝업 확대 (이 시점에만 원본 화질 로드) -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <span class="lb-count" id="lb-count"></span>
+  <button class="lb-btn lb-close" aria-label="Close">×</button>
+  <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+  <img id="lb-img" alt="">
+  <button class="lb-btn lb-next" aria-label="Next">›</button>
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+
+<!-- 스크린샷 목록(manifest) — tools/process-shots.mjs가 재생성 -->
+<script src="shots/manifest.js"></script>
+
+<script>
+'use strict';
+
+/* ═════════ 언어 데이터 ═════════
+   모국어 17종. ko는 →en만, en은 →ko만, 나머지는 양방향(en·ko).
+   학습 언어 목록에는 전 언어를 노출하되 en·ko 외에는 회색(추가 예정). */
+const LANGS = [
+  {code:'ko', name:'한국어',           targets:['en']},
+  {code:'en', name:'English',          targets:['ko']},
+  {code:'zh', name:'中文',             targets:['en','ko']},
+  {code:'ja', name:'日本語',           targets:['en','ko']},
+  {code:'vi', name:'Tiếng Việt',       targets:['en','ko']},
+  {code:'id', name:'Bahasa Indonesia', targets:['en','ko']},
+  {code:'th', name:'ไทย',              targets:['en','ko']},
+  {code:'ru', name:'Русский',          targets:['en','ko']},
+  {code:'uk', name:'Українська',       targets:['en','ko']},
+  {code:'pl', name:'Polski',           targets:['en','ko']},
+  {code:'de', name:'Deutsch',          targets:['en','ko']},
+  {code:'fr', name:'Français',         targets:['en','ko']},
+  {code:'es', name:'Español',          targets:['en','ko']},
+  {code:'it', name:'Italiano',         targets:['en','ko']},
+  {code:'pt', name:'Português',        targets:['en','ko']},
+  {code:'tr', name:'Türkçe',           targets:['en','ko']},
+  {code:'ar', name:'العربية',          targets:['en','ko']},
+];
+const TARGET_NAME = {en:'English', ko:'한국어'};
+const RTL = new Set(['ar']);
+
+/* ═════════ UI 문구 (17개어) ═════════ */
+const UI = {
+  introTitle:{
+    ko:"GenRecall, <em>내 언어로</em> 미리 보기",
+    en:"Preview GenRecall <em>in your language</em>",
+    zh:"用<em>你的语言</em>预览 GenRecall",
+    ja:"<em>自分の言語で</em>GenRecall をプレビュー",
+    vi:"Xem trước GenRecall <em>bằng ngôn ngữ của bạn</em>",
+    id:"Pratinjau GenRecall <em>dalam bahasa Anda</em>",
+    th:"ดูตัวอย่าง GenRecall <em>ในภาษาของคุณ</em>",
+    ru:"Посмотрите GenRecall <em>на своём языке</em>",
+    uk:"Погляньте на GenRecall <em>своєю мовою</em>",
+    pl:"Zobacz GenRecall <em>w swoim języku</em>",
+    de:"GenRecall <em>in deiner Sprache</em> ansehen",
+    fr:"Découvrez GenRecall <em>dans votre langue</em>",
+    es:"Mira GenRecall <em>en tu idioma</em>",
+    it:"Guarda GenRecall <em>nella tua lingua</em>",
+    pt:"Veja o GenRecall <em>no seu idioma</em>",
+    tr:"GenRecall'i <em>kendi dilinizde</em> önizleyin",
+    ar:"شاهد GenRecall <em>بلغتك</em>"},
+  introSub:{
+    ko:"언어를 고르면 그 언어로 된 실제 앱 화면이 나옵니다. 각 줄은 옆으로 넘겨서 더 볼 수 있고, 스크린샷을 누르면 크게 볼 수 있어요.",
+    en:"Pick a language and see real app screens in that language. Swipe each row for more, and tap any screenshot to enlarge it.",
+    zh:"选择语言即可看到该语言的真实应用界面。每行可左右滑动查看更多，点击截图可放大。",
+    ja:"言語を選ぶと、その言語の実際のアプリ画面が表示されます。各行は横にスワイプでき、スクリーンショットをタップすると拡大表示されます。",
+    vi:"Chọn ngôn ngữ để xem màn hình thật của ứng dụng bằng ngôn ngữ đó. Vuốt ngang mỗi hàng để xem thêm, chạm vào ảnh để phóng to.",
+    id:"Pilih bahasa untuk melihat tampilan asli aplikasi dalam bahasa itu. Geser tiap baris untuk melihat lebih banyak, ketuk tangkapan layar untuk memperbesar.",
+    th:"เลือกภาษาเพื่อดูหน้าจอจริงของแอปในภาษานั้น เลื่อนแต่ละแถวไปด้านข้างเพื่อดูเพิ่ม แตะภาพเพื่อขยาย",
+    ru:"Выберите язык — и увидите реальные экраны приложения на нём. Листайте ряды в сторону, нажмите на скриншот, чтобы увеличить.",
+    uk:"Оберіть мову — і побачите справжні екрани застосунку нею. Гортайте ряди вбік, натисніть на знімок, щоб збільшити.",
+    pl:"Wybierz język, aby zobaczyć prawdziwe ekrany aplikacji w tym języku. Przesuwaj wiersze w bok, dotknij zrzutu, aby powiększyć.",
+    de:"Wähle eine Sprache und sieh echte App-Screens in dieser Sprache. Wische jede Reihe zur Seite, tippe auf einen Screenshot zum Vergrößern.",
+    fr:"Choisissez une langue pour voir de vrais écrans de l'app dans cette langue. Faites défiler chaque ligne et touchez une capture pour l'agrandir.",
+    es:"Elige un idioma y verás pantallas reales de la app en ese idioma. Desliza cada fila para ver más y toca una captura para ampliarla.",
+    it:"Scegli una lingua e vedrai le schermate reali dell'app in quella lingua. Scorri ogni riga di lato e tocca uno screenshot per ingrandirlo.",
+    pt:"Escolha um idioma e veja telas reais do app nesse idioma. Deslize cada fileira para o lado e toque numa captura para ampliar.",
+    tr:"Bir dil seçin, uygulamanın gerçek ekranlarını o dilde görün. Her satırı yana kaydırın, büyütmek için ekran görüntüsüne dokunun.",
+    ar:"اختر لغة لترى شاشات التطبيق الحقيقية بتلك اللغة. اسحب كل صف جانبيًا للمزيد، واضغط على أي لقطة لتكبيرها."},
+  myLang:{
+    ko:"내 언어", en:"My language", zh:"我的语言", ja:"自分の言語", vi:"Ngôn ngữ của tôi",
+    id:"Bahasa saya", th:"ภาษาของฉัน", ru:"Мой язык", uk:"Моя мова", pl:"Mój język",
+    de:"Meine Sprache", fr:"Ma langue", es:"Mi idioma", it:"La mia lingua", pt:"Meu idioma",
+    tr:"Dilim", ar:"لغتي"},
+  learnLang:{
+    ko:"학습 언어", en:"Language to learn", zh:"学习语言", ja:"学習する言語", vi:"Ngôn ngữ muốn học",
+    id:"Bahasa yang dipelajari", th:"ภาษาที่เรียน", ru:"Изучаемый язык", uk:"Мова вивчення", pl:"Język nauki",
+    de:"Lernsprache", fr:"Langue à apprendre", es:"Idioma a aprender", it:"Lingua da imparare", pt:"Idioma a aprender",
+    tr:"Öğrenilen dil", ar:"لغة التعلّم"},
+  device:{
+    ko:"기기", en:"Device", zh:"设备", ja:"デバイス", vi:"Thiết bị",
+    id:"Perangkat", th:"อุปกรณ์", ru:"Устройство", uk:"Пристрій", pl:"Urządzenie",
+    de:"Gerät", fr:"Appareil", es:"Dispositivo", it:"Dispositivo", pt:"Dispositivo",
+    tr:"Cihaz", ar:"الجهاز"},
+  phone:{
+    ko:"폰", en:"Phone", zh:"手机", ja:"スマホ", vi:"Điện thoại",
+    id:"Ponsel", th:"โทรศัพท์", ru:"Телефон", uk:"Телефон", pl:"Telefon",
+    de:"Handy", fr:"Téléphone", es:"Móvil", it:"Telefono", pt:"Celular",
+    tr:"Telefon", ar:"الهاتف"},
+  tablet:{
+    ko:"태블릿", en:"Tablet", zh:"平板", ja:"タブレット", vi:"Máy tính bảng",
+    id:"Tablet", th:"แท็บเล็ต", ru:"Планшет", uk:"Планшет", pl:"Tablet",
+    de:"Tablet", fr:"Tablette", es:"Tableta", it:"Tablet", pt:"Tablet",
+    tr:"Tablet", ar:"الجهاز اللوحي"},
+  coming:{
+    ko:"* 회색 처리된 언어는 추가 예정입니다.",
+    en:"* Greyed-out languages are coming soon.",
+    zh:"* 灰色的语言即将推出。",
+    ja:"* グレー表示の言語は追加予定です。",
+    vi:"* Các ngôn ngữ màu xám sẽ sớm được bổ sung.",
+    id:"* Bahasa yang berwarna abu-abu akan segera ditambahkan.",
+    th:"* ภาษาที่เป็นสีเทาจะเพิ่มเร็ว ๆ นี้",
+    ru:"* Языки, выделенные серым, появятся позже.",
+    uk:"* Мови, позначені сірим, з'являться згодом.",
+    pl:"* Języki oznaczone na szaro pojawią się wkrótce.",
+    de:"* Ausgegraute Sprachen folgen in Kürze.",
+    fr:"* Les langues grisées arrivent bientôt.",
+    es:"* Los idiomas en gris llegarán pronto.",
+    it:"* Le lingue in grigio saranno aggiunte presto.",
+    pt:"* Os idiomas em cinza serão adicionados em breve.",
+    tr:"* Gri renkli diller yakında eklenecek.",
+    ar:"* اللغات الرمادية ستُضاف قريبًا."},
+  nowViewing:{
+    ko:"지금 보는 화면", en:"Now viewing", zh:"当前显示", ja:"表示中", vi:"Đang xem",
+    id:"Sedang menampilkan", th:"กำลังดู", ru:"Сейчас показано", uk:"Зараз показано", pl:"Teraz wyświetlane",
+    de:"Aktuelle Ansicht", fr:"Affichage actuel", es:"Viendo ahora", it:"Stai guardando", pt:"Exibindo agora",
+    tr:"Şu an görüntülenen", ar:"العرض الحالي"},
+  preparing:{
+    ko:"이 조합의 스크린샷을 준비하고 있어요. 곧 채워집니다.",
+    en:"Screenshots for this combination are on the way.",
+    zh:"该组合的截图正在准备中，即将上线。",
+    ja:"この組み合わせのスクリーンショットは準備中です。まもなく追加されます。",
+    vi:"Ảnh chụp màn hình cho lựa chọn này đang được chuẩn bị.",
+    id:"Tangkapan layar untuk kombinasi ini sedang disiapkan.",
+    th:"ภาพหน้าจอสำหรับตัวเลือกนี้กำลังจัดเตรียม เร็ว ๆ นี้",
+    ru:"Скриншоты для этого сочетания готовятся и скоро появятся.",
+    uk:"Знімки для цього поєднання готуються і незабаром з'являться.",
+    pl:"Zrzuty ekranu dla tego zestawienia są w przygotowaniu.",
+    de:"Screenshots für diese Kombination sind in Arbeit.",
+    fr:"Les captures pour cette combinaison arrivent bientôt.",
+    es:"Las capturas para esta combinación están en camino.",
+    it:"Gli screenshot per questa combinazione sono in arrivo.",
+    pt:"As capturas para esta combinação estão a caminho.",
+    tr:"Bu kombinasyonun ekran görüntüleri hazırlanıyor.",
+    ar:"لقطات الشاشة لهذا الاختيار قيد التحضير وستتوفر قريبًا."},
+};
+
+/* ═════════ 줄 구성 + 슬라이드별 설명 (17개어) ═════════
+   줄 순서 = 촬영 체크리스트 순서. 이미지 파일명은 shots/<쌍>/<기기>/<줄id>-<번호>.webp
+   용어는 앱 번역(packages/shared i18n)과 일치: Level test·Favorites·My patterns·Stats */
+const ROWS = [
+  {id:'writing',
+   title:{ko:"작문", en:"Writing", zh:"写作", ja:"作文", vi:"Viết",
+          id:"Menulis", th:"การเขียน", ru:"Письмо", uk:"Письмо", pl:"Pisanie",
+          de:"Schreiben", fr:"Écriture", es:"Escritura", it:"Scrittura", pt:"Escrita",
+          tr:"Yazma", ar:"الكتابة"},
+   caps:[
+     {ko:"모국어 문장을 보고, 목표 언어로 직접 씁니다. 힌트는 없어요.",
+      en:"Read the sentence in your language, then write it yourself in the target language. No hints.",
+      zh:"看到母语句子后，用目标语言亲自写出来。没有提示。",
+      ja:"母語の文を見て、目標言語で自分で書きます。ヒントはありません。",
+      vi:"Đọc câu bằng tiếng mẹ đẻ, rồi tự viết bằng ngôn ngữ mục tiêu. Không có gợi ý.",
+      id:"Baca kalimat dalam bahasa ibu Anda, lalu tulis sendiri dalam bahasa target. Tanpa petunjuk.",
+      th:"อ่านประโยคภาษาแม่ แล้วเขียนเองเป็นภาษาเป้าหมาย ไม่มีคำใบ้",
+      ru:"Читаете фразу на родном языке — и сами пишете её на изучаемом. Без подсказок.",
+      uk:"Читаєте речення рідною мовою — і самі пишете його мовою вивчення. Без підказок.",
+      pl:"Czytasz zdanie w swoim języku i sam piszesz je w języku, którego się uczysz. Bez podpowiedzi.",
+      de:"Du liest den Satz in deiner Sprache und schreibst ihn selbst in der Lernsprache. Ohne Hinweise.",
+      fr:"Vous lisez la phrase dans votre langue, puis vous l'écrivez vous-même dans la langue apprise. Sans indice.",
+      es:"Lees la frase en tu idioma y la escribes tú mismo en el idioma que aprendes. Sin pistas.",
+      it:"Leggi la frase nella tua lingua e la scrivi tu stesso nella lingua che studi. Senza suggerimenti.",
+      pt:"Você lê a frase no seu idioma e a escreve você mesmo no idioma que está aprendendo. Sem dicas.",
+      tr:"Cümleyi ana dilinizde okuyup hedef dilde kendiniz yazarsınız. İpucu yok.",
+      ar:"اقرأ الجملة بلغتك الأم، ثم اكتبها بنفسك باللغة الهدف. بلا تلميحات."},
+     {ko:"다 쓰면 제출 — AI가 바로 채점을 시작합니다.",
+      en:"Submit when you are done — the AI starts grading right away.",
+      zh:"写完就提交——AI 立即开始评分。",
+      ja:"書き終えたら提出 — AI がすぐに採点を始めます。",
+      vi:"Viết xong thì gửi — AI chấm điểm ngay lập tức.",
+      id:"Kirim setelah selesai — AI langsung mulai menilai.",
+      th:"เขียนเสร็จแล้วส่ง — AI เริ่มตรวจให้ทันที",
+      ru:"Готово — отправляйте: ИИ сразу начнёт проверку.",
+      uk:"Готово — надсилайте: ШІ одразу почне перевірку.",
+      pl:"Gotowe? Wyślij — AI od razu zaczyna ocenianie.",
+      de:"Fertig? Abschicken — die KI beginnt sofort mit der Bewertung.",
+      fr:"Terminé ? Envoyez — l'IA commence aussitôt la correction.",
+      es:"¿Listo? Envíalo: la IA empieza a corregir al instante.",
+      it:"Finito? Invia: l'IA inizia subito la correzione.",
+      pt:"Terminou? Envie — a IA começa a corrigir na hora.",
+      tr:"Bitince gönderin — yapay zeka hemen puanlamaya başlar.",
+      ar:"أرسل عند الانتهاء — يبدأ الذكاء الاصطناعي التقييم فورًا."},
+   ]},
+  {id:'settings',
+   title:{ko:"설정 옵션", en:"Settings", zh:"设置选项", ja:"設定オプション", vi:"Cài đặt",
+          id:"Pengaturan", th:"การตั้งค่า", ru:"Настройки", uk:"Налаштування", pl:"Ustawienia",
+          de:"Einstellungen", fr:"Réglages", es:"Ajustes", it:"Impostazioni", pt:"Configurações",
+          tr:"Ayarlar", ar:"الإعدادات"},
+   caps:[
+     {ko:"난이도·주제·문장 길이를 내 취향대로 조절할 수 있어요.",
+      en:"Tune difficulty, topics, and sentence length to your taste.",
+      zh:"难度、主题、句子长度都可以按喜好调节。",
+      ja:"難易度・トピック・文の長さを好みに合わせて調整できます。",
+      vi:"Điều chỉnh độ khó, chủ đề và độ dài câu theo ý bạn.",
+      id:"Atur tingkat kesulitan, topik, dan panjang kalimat sesuai selera.",
+      th:"ปรับความยาก หัวข้อ และความยาวประโยคได้ตามใจ",
+      ru:"Сложность, темы и длину фраз можно настроить под себя.",
+      uk:"Складність, теми й довжину речень можна налаштувати під себе.",
+      pl:"Trudność, tematy i długość zdań ustawisz po swojemu.",
+      de:"Schwierigkeit, Themen und Satzlänge lassen sich nach Geschmack einstellen.",
+      fr:"Difficulté, thèmes et longueur des phrases se règlent à votre goût.",
+      es:"Ajusta dificultad, temas y longitud de las frases a tu gusto.",
+      it:"Difficoltà, temi e lunghezza delle frasi si regolano a piacere.",
+      pt:"Ajuste dificuldade, temas e comprimento das frases ao seu gosto.",
+      tr:"Zorluk, konular ve cümle uzunluğunu zevkinize göre ayarlayın.",
+      ar:"اضبط الصعوبة والمواضيع وطول الجمل حسب ذوقك."},
+     {ko:"배경 밝기 5단계 — 눈이 편한 화면을 골라요.",
+      en:"Five background brightness levels — pick what is easy on your eyes.",
+      zh:"背景亮度五档——选一个眼睛最舒服的。",
+      ja:"背景の明るさは5段階 — 目に優しい画面を選べます。",
+      vi:"Năm mức sáng nền — chọn mức dịu mắt nhất.",
+      id:"Lima tingkat kecerahan latar — pilih yang paling nyaman di mata.",
+      th:"ความสว่างพื้นหลัง 5 ระดับ — เลือกที่สบายตาที่สุด",
+      ru:"Пять уровней яркости фона — выберите комфортный для глаз.",
+      uk:"П'ять рівнів яскравості тла — оберіть комфортний для очей.",
+      pl:"Pięć poziomów jasności tła — wybierz przyjazny dla oczu.",
+      de:"Fünf Helligkeitsstufen für den Hintergrund — augenfreundlich wählbar.",
+      fr:"Cinq niveaux de luminosité du fond — choisissez le plus doux pour vos yeux.",
+      es:"Cinco niveles de brillo de fondo: elige el más cómodo para tus ojos.",
+      it:"Cinque livelli di luminosità dello sfondo: scegli il più riposante.",
+      pt:"Cinco níveis de brilho de fundo — escolha o mais confortável.",
+      tr:"Beş arka plan parlaklık seviyesi — gözünüzü yormayanı seçin.",
+      ar:"خمسة مستويات لسطوع الخلفية — اختر الأريح لعينيك."},
+   ]},
+  {id:'layout',
+   title:{ko:"레이아웃 3종", en:"Three layouts", zh:"三种布局", ja:"3つのレイアウト", vi:"Ba kiểu bố cục",
+          id:"Tiga tata letak", th:"เลย์เอาต์ 3 แบบ", ru:"Три варианта интерфейса", uk:"Три варіанти інтерфейсу", pl:"Trzy układy",
+          de:"Drei Layouts", fr:"Trois mises en page", es:"Tres diseños", it:"Tre layout", pt:"Três layouts",
+          tr:"Üç düzen", ar:"ثلاثة تخطيطات"},
+   caps:[
+     {ko:"폰 세로 — 한 손으로 쓰기 좋은 기본 화면.",
+      en:"Phone, portrait — a home screen built for one-handed writing.",
+      zh:"手机竖屏——单手写作也顺手的基本界面。",
+      ja:"スマホ縦向き — 片手で書きやすい基本画面。",
+      vi:"Điện thoại, dọc — màn hình chính tiện viết bằng một tay.",
+      id:"Ponsel, potret — layar utama yang nyaman untuk menulis satu tangan.",
+      th:"โทรศัพท์แนวตั้ง — หน้าจอหลักที่เขียนมือเดียวได้สบาย",
+      ru:"Телефон, вертикально — базовый экран для письма одной рукой.",
+      uk:"Телефон, вертикально — базовий екран для письма однією рукою.",
+      pl:"Telefon, pion — podstawowy ekran wygodny do pisania jedną ręką.",
+      de:"Handy, Hochformat — der Grundbildschirm, gemacht fürs einhändige Schreiben.",
+      fr:"Téléphone, portrait — l'écran de base pensé pour écrire d'une main.",
+      es:"Móvil en vertical: la pantalla básica, cómoda para escribir con una mano.",
+      it:"Telefono, verticale — la schermata base comoda per scrivere con una mano.",
+      pt:"Celular na vertical — a tela básica, boa para escrever com uma mão.",
+      tr:"Telefon, dikey — tek elle yazmaya uygun temel ekran.",
+      ar:"الهاتف عموديًا — شاشة أساسية مصممة للكتابة بيد واحدة."},
+     {ko:"태블릿 가로 — 넓게 놓고 물리 키보드로.",
+      en:"Tablet, landscape — spread out and type on a real keyboard.",
+      zh:"平板横屏——摊开来配实体键盘用。",
+      ja:"タブレット横向き — 広々と置いて物理キーボードで。",
+      vi:"Máy tính bảng, ngang — thoải mái gõ với bàn phím thật.",
+      id:"Tablet, lanskap — lega dan cocok dengan keyboard fisik.",
+      th:"แท็บเล็ตแนวนอน — กางกว้าง ๆ ใช้กับคีย์บอร์ดจริง",
+      ru:"Планшет, горизонтально — просторно и с настоящей клавиатурой.",
+      uk:"Планшет, горизонтально — просторо і зі справжньою клавіатурою.",
+      pl:"Tablet, poziom — szeroko i z prawdziwą klawiaturą.",
+      de:"Tablet, Querformat — viel Platz, ideal mit echter Tastatur.",
+      fr:"Tablette, paysage — en grand, avec un vrai clavier.",
+      es:"Tableta en horizontal: a lo grande y con teclado físico.",
+      it:"Tablet, orizzontale — in grande e con una tastiera vera.",
+      pt:"Tablet na horizontal — espaço de sobra e teclado físico.",
+      tr:"Tablet, yatay — geniş ekranda gerçek klavyeyle.",
+      ar:"الجهاز اللوحي أفقيًا — مساحة أوسع مع لوحة مفاتيح حقيقية."},
+     {ko:"다크·라이트 테마 — 밤에도 낮에도 편하게.",
+      en:"Dark & light themes — comfortable day and night.",
+      zh:"深色与浅色主题——白天黑夜都舒服。",
+      ja:"ダーク＆ライトテーマ — 昼も夜も快適に。",
+      vi:"Giao diện tối & sáng — dễ chịu cả ngày lẫn đêm.",
+      id:"Tema gelap & terang — nyaman siang dan malam.",
+      th:"ธีมมืดและสว่าง — สบายตาทั้งกลางวันกลางคืน",
+      ru:"Тёмная и светлая темы — комфортно днём и ночью.",
+      uk:"Темна і світла теми — комфортно вдень і вночі.",
+      pl:"Ciemny i jasny motyw — wygodnie w dzień i w nocy.",
+      de:"Dunkles & helles Design — angenehm bei Tag und Nacht.",
+      fr:"Thèmes sombre et clair — agréable de jour comme de nuit.",
+      es:"Temas oscuro y claro: cómodo de día y de noche.",
+      it:"Tema scuro e chiaro — comodo di giorno e di notte.",
+      pt:"Temas escuro e claro — confortável de dia e de noite.",
+      tr:"Koyu ve açık tema — gündüz de gece de rahat.",
+      ar:"سمتان داكنة وفاتحة — راحة في النهار والليل."},
+   ]},
+  {id:'placement',
+   title:{ko:"레벨 테스트·채점 결과", en:"Level test & results", zh:"水平测试与评分结果", ja:"レベルテストと採点結果", vi:"Kiểm tra trình độ & kết quả",
+          id:"Tes level & hasil", th:"ทดสอบระดับและผลตรวจ", ru:"Тест уровня и результаты", uk:"Тест рівня та результати", pl:"Test poziomujący i wyniki",
+          de:"Einstufungstest & Ergebnisse", fr:"Test de niveau et résultats", es:"Prueba de nivel y resultados", it:"Test di livello e risultati", pt:"Teste de nível e resultados",
+          tr:"Seviye testi ve sonuçlar", ar:"اختبار تحديد المستوى والنتائج"},
+   caps:[
+     {ko:"레벨 테스트 — 몇 문장 써보는 걸로 시작해요.",
+      en:"The level test starts with writing a few sentences.",
+      zh:"水平测试——从写几个句子开始。",
+      ja:"レベルテスト — いくつか文を書くところから始まります。",
+      vi:"Bài kiểm tra trình độ bắt đầu bằng việc viết vài câu.",
+      id:"Tes level dimulai dengan menulis beberapa kalimat.",
+      th:"ทดสอบระดับ — เริ่มจากการเขียนไม่กี่ประโยค",
+      ru:"Тест уровня начинается с нескольких написанных фраз.",
+      uk:"Тест рівня починається з кількох написаних речень.",
+      pl:"Test poziomujący zaczyna się od napisania kilku zdań.",
+      de:"Der Einstufungstest beginnt mit ein paar selbst geschriebenen Sätzen.",
+      fr:"Le test de niveau commence par quelques phrases à écrire.",
+      es:"La prueba de nivel empieza escribiendo unas frases.",
+      it:"Il test di livello inizia scrivendo qualche frase.",
+      pt:"O teste de nível começa com você escrevendo algumas frases.",
+      tr:"Seviye testi birkaç cümle yazmakla başlar.",
+      ar:"يبدأ اختبار تحديد المستوى بكتابة بضع جمل."},
+     {ko:"문제마다 실제 작문으로 실력을 확인합니다.",
+      en:"Every question checks your real writing — no multiple choice.",
+      zh:"每道题都用真实写作检验实力——不是选择题。",
+      ja:"どの問題も実際の作文で実力を確認 — 選択式ではありません。",
+      vi:"Mỗi câu hỏi kiểm tra khả năng viết thật, không trắc nghiệm.",
+      id:"Setiap soal menguji tulisan asli Anda — bukan pilihan ganda.",
+      th:"ทุกข้อวัดจากการเขียนจริง — ไม่ใช่ข้อสอบตัวเลือก",
+      ru:"Каждое задание проверяет настоящее письмо, а не выбор из вариантов.",
+      uk:"Кожне завдання перевіряє справжнє письмо, а не вибір із варіантів.",
+      pl:"Każde zadanie sprawdza prawdziwe pisanie — bez testu wyboru.",
+      de:"Jede Aufgabe prüft echtes Schreiben — kein Multiple-Choice.",
+      fr:"Chaque question évalue votre vraie écriture — pas de QCM.",
+      es:"Cada pregunta evalúa tu escritura real, no un test de opciones.",
+      it:"Ogni domanda valuta la tua scrittura reale — niente risposte multiple.",
+      pt:"Cada questão avalia sua escrita real — nada de múltipla escolha.",
+      tr:"Her soru gerçek yazınızı ölçer — çoktan seçmeli değil.",
+      ar:"كل سؤال يختبر كتابتك الحقيقية، لا اختيارًا من متعدد."},
+     {ko:"채점 결과 — 점수와 함께 오류 유형이 정리돼요.",
+      en:"Results — your score with the error types laid out.",
+      zh:"评分结果——分数与错误类型一目了然。",
+      ja:"採点結果 — 点数とともに間違いの種類が整理されます。",
+      vi:"Kết quả — điểm số kèm các loại lỗi được liệt kê.",
+      id:"Hasil — skor beserta jenis kesalahan yang dirinci.",
+      th:"ผลตรวจ — คะแนนพร้อมประเภทข้อผิดพลาดจัดให้เป็นระเบียบ",
+      ru:"Результаты — балл и разбор типов ошибок.",
+      uk:"Результати — бал і розбір типів помилок.",
+      pl:"Wyniki — punkty wraz z rozpisanymi typami błędów.",
+      de:"Ergebnisse — Punktzahl samt aufgeschlüsselten Fehlertypen.",
+      fr:"Résultats — votre score avec les types d'erreurs détaillés.",
+      es:"Resultados: tu puntuación con los tipos de error desglosados.",
+      it:"Risultati — il punteggio con i tipi di errore in dettaglio.",
+      pt:"Resultados — sua pontuação com os tipos de erro organizados.",
+      tr:"Sonuçlar — puanınız ve hata türleri düzenli biçimde.",
+      ar:"النتائج — درجتك مع أنواع الأخطاء مرتبة."},
+     {ko:"총평 — 지금 레벨과 다음에 연습할 것을 알려줘요.",
+      en:"The review tells you your level and what to practice next.",
+      zh:"总评——告诉你现在的水平和接下来该练什么。",
+      ja:"総評 — 今のレベルと次に練習すべきことを教えてくれます。",
+      vi:"Nhận xét tổng thể cho biết trình độ và điều cần luyện tiếp.",
+      id:"Ulasan akhir memberi tahu level Anda dan apa yang perlu dilatih berikutnya.",
+      th:"บทสรุป — บอกระดับปัจจุบันและสิ่งที่ควรฝึกต่อ",
+      ru:"Итог — ваш уровень и что тренировать дальше.",
+      uk:"Підсумок — ваш рівень і що тренувати далі.",
+      pl:"Podsumowanie — twój poziom i co ćwiczyć dalej.",
+      de:"Das Fazit nennt dein Level und was du als Nächstes üben solltest.",
+      fr:"Le bilan indique votre niveau et quoi travailler ensuite.",
+      es:"El balance te dice tu nivel y qué practicar después.",
+      it:"Il bilancio ti dice il tuo livello e cosa allenare dopo.",
+      pt:"O balanço mostra seu nível e o que praticar em seguida.",
+      tr:"Genel değerlendirme seviyenizi ve sırada ne çalışacağınızı söyler.",
+      ar:"التقييم العام يخبرك بمستواك وما تتدرب عليه تاليًا."},
+   ]},
+  {id:'ask',
+   title:{ko:"선생님께 질문", en:"Ask the teacher", zh:"向老师提问", ja:"先生に質問", vi:"Hỏi giáo viên",
+          id:"Tanya guru", th:"ถามครู", ru:"Вопрос учителю", uk:"Питання вчителю", pl:"Zapytaj nauczyciela",
+          de:"Den Lehrer fragen", fr:"Demander au professeur", es:"Pregunta al profesor", it:"Chiedi all'insegnante", pt:"Pergunte ao professor",
+          tr:"Öğretmene sor", ar:"اسأل المعلم"},
+   caps:[
+     {ko:"채점이 궁금하면 AI 선생님께 바로 질문할 수 있어요.",
+      en:"Curious about your grading? Ask the AI teacher directly.",
+      zh:"对评分有疑问？直接问 AI 老师。",
+      ja:"採点に疑問があれば、AI の先生にすぐ質問できます。",
+      vi:"Thắc mắc về kết quả chấm? Hỏi thẳng giáo viên AI.",
+      id:"Penasaran dengan penilaiannya? Tanyakan langsung ke guru AI.",
+      th:"สงสัยเรื่องการตรวจ? ถามครู AI ได้เลย",
+      ru:"Есть вопрос к проверке? Спросите ИИ-учителя напрямую.",
+      uk:"Є питання до перевірки? Спитайте ШІ-вчителя напряму.",
+      pl:"Masz pytanie do oceny? Zapytaj nauczyciela AI wprost.",
+      de:"Fragen zur Bewertung? Frag den KI-Lehrer direkt.",
+      fr:"Un doute sur la correction ? Interrogez directement le professeur IA.",
+      es:"¿Dudas sobre la corrección? Pregunta directamente al profesor de IA.",
+      it:"Dubbi sulla correzione? Chiedi direttamente all'insegnante IA.",
+      pt:"Dúvidas sobre a correção? Pergunte diretamente ao professor de IA.",
+      tr:"Puanlamayı merak mı ettiniz? Yapay zeka öğretmene doğrudan sorun.",
+      ar:"لديك سؤال عن التقييم؟ اسأل المعلم الذكي مباشرة."},
+     {ko:"답변은 내 모국어로, 예문과 함께 돌아옵니다.",
+      en:"Answers come back in your language, with examples.",
+      zh:"回答会用你的母语给出，还带例句。",
+      ja:"回答は母語で、例文つきで返ってきます。",
+      vi:"Câu trả lời bằng tiếng mẹ đẻ của bạn, kèm ví dụ.",
+      id:"Jawaban datang dalam bahasa Anda, lengkap dengan contoh.",
+      th:"คำตอบกลับมาเป็นภาษาของคุณ พร้อมตัวอย่าง",
+      ru:"Ответ придёт на вашем языке и с примерами.",
+      uk:"Відповідь прийде вашою мовою і з прикладами.",
+      pl:"Odpowiedź wraca w twoim języku, z przykładami.",
+      de:"Antworten kommen in deiner Sprache — mit Beispielen.",
+      fr:"Les réponses arrivent dans votre langue, avec des exemples.",
+      es:"Las respuestas llegan en tu idioma y con ejemplos.",
+      it:"Le risposte arrivano nella tua lingua, con esempi.",
+      pt:"As respostas chegam no seu idioma, com exemplos.",
+      tr:"Yanıtlar kendi dilinizde, örneklerle gelir.",
+      ar:"تصلك الإجابة بلغتك الأم مع أمثلة."},
+   ]},
+  {id:'favorites',
+   title:{ko:"즐겨찾기·연습패턴", en:"Favorites & my patterns", zh:"收藏与练习句型", ja:"お気に入りと練習パターン", vi:"Yêu thích & mẫu câu của tôi",
+          id:"Favorit & pola saya", th:"รายการโปรดและรูปประโยคของฉัน", ru:"Избранное и мои паттерны", uk:"Обране та мої шаблони", pl:"Ulubione i moje wzorce",
+          de:"Favoriten & meine Muster", fr:"Favoris et mes structures", es:"Favoritos y mis patrones", it:"Preferiti e i miei schemi", pt:"Favoritos e meus padrões",
+          tr:"Favoriler ve kalıplarım", ar:"المفضلة وأنماطي"},
+   caps:[
+     {ko:"마음에 든 문장은 즐겨찾기로 모아둬요.",
+      en:"Save sentences you like to favorites.",
+      zh:"喜欢的句子收藏起来。",
+      ja:"気に入った文はお気に入りに保存。",
+      vi:"Lưu những câu bạn thích vào mục yêu thích.",
+      id:"Simpan kalimat yang Anda suka ke favorit.",
+      th:"เก็บประโยคที่ชอบไว้ในรายการโปรด",
+      ru:"Понравившиеся фразы — в избранное.",
+      uk:"Речення, що сподобались, — в обране.",
+      pl:"Zdania, które ci się podobają, zapisujesz w ulubionych.",
+      de:"Sätze, die dir gefallen, wandern in die Favoriten.",
+      fr:"Gardez les phrases qui vous plaisent dans vos favoris.",
+      es:"Guarda en favoritos las frases que te gusten.",
+      it:"Salva nei preferiti le frasi che ti piacciono.",
+      pt:"Guarde nos favoritos as frases de que gostar.",
+      tr:"Beğendiğiniz cümleleri favorilere kaydedin.",
+      ar:"احفظ الجمل التي تعجبك في المفضلة."},
+     {ko:"약한 문형은 연습 패턴으로 등록돼 다시 돌아옵니다.",
+      en:"Weak patterns get registered and come back for practice.",
+      zh:"薄弱的句型会登记为练习句型，之后再次出现。",
+      ja:"苦手なパターンは練習パターンに登録され、また戻ってきます。",
+      vi:"Mẫu câu yếu được ghi lại và quay lại để luyện tập.",
+      id:"Pola yang lemah dicatat dan kembali untuk dilatih.",
+      th:"รูปประโยคที่ยังอ่อนจะถูกบันทึกและวนกลับมาให้ฝึก",
+      ru:"Слабые конструкции попадают в «мои паттерны» и возвращаются для практики.",
+      uk:"Слабкі конструкції потрапляють у «мої шаблони» і повертаються для практики.",
+      pl:"Słabe wzorce trafiają do „moich wzorców” i wracają do ćwiczeń.",
+      de:"Schwache Muster landen in „meine Muster“ und kommen zum Üben zurück.",
+      fr:"Les structures faibles rejoignent « mes structures » et reviennent en pratique.",
+      es:"Los patrones débiles se registran y vuelven para practicar.",
+      it:"Gli schemi deboli vengono registrati e tornano per l'esercizio.",
+      pt:"Os padrões fracos são registrados e voltam para praticar.",
+      tr:"Zayıf kalıplar kaydedilir ve alıştırma için geri gelir.",
+      ar:"تُسجَّل الأنماط الضعيفة وتعود إليك للتدريب."},
+   ]},
+  {id:'stats',
+   title:{ko:"통계", en:"Stats", zh:"统计", ja:"統計", vi:"Thống kê",
+          id:"Statistik", th:"สถิติ", ru:"Статистика", uk:"Статистика", pl:"Statystyki",
+          de:"Statistik", fr:"Stats", es:"Estadísticas", it:"Statistiche", pt:"Estatísticas",
+          tr:"İstatistik", ar:"الإحصائيات"},
+   caps:[
+     {ko:"매일의 연습량과 점수 흐름이 그래프로 보여요.",
+      en:"See your daily practice and score trends on charts.",
+      zh:"每天的练习量和分数走势都有图表。",
+      ja:"毎日の練習量と点数の推移がグラフで見えます。",
+      vi:"Xem lượng luyện tập và điểm số mỗi ngày qua biểu đồ.",
+      id:"Lihat volume latihan dan tren skor harian dalam grafik.",
+      th:"ดูปริมาณการฝึกและแนวโน้มคะแนนรายวันเป็นกราฟ",
+      ru:"Ежедневная практика и динамика баллов — на графиках.",
+      uk:"Щоденна практика і динаміка балів — на графіках.",
+      pl:"Codzienna praktyka i trend punktów — na wykresach.",
+      de:"Tägliches Pensum und Punkteverlauf — als Diagramm.",
+      fr:"Votre pratique quotidienne et l'évolution des scores, en graphiques.",
+      es:"Tu práctica diaria y la evolución de tus puntuaciones, en gráficas.",
+      it:"La pratica quotidiana e l'andamento dei punteggi, in grafici.",
+      pt:"Sua prática diária e a evolução das notas, em gráficos.",
+      tr:"Günlük pratiğiniz ve puan eğiliminiz grafiklerle.",
+      ar:"تابع تدريبك اليومي ومسار درجاتك عبر الرسوم البيانية."},
+     {ko:"오류 유형별 통계로 내 약점이 한눈에 잡힙니다.",
+      en:"Error-type statistics show your weak spots at a glance.",
+      zh:"按错误类型统计，弱点一眼看清。",
+      ja:"間違いの種類別統計で、弱点がひと目でわかります。",
+      vi:"Thống kê theo loại lỗi cho thấy điểm yếu của bạn ngay.",
+      id:"Statistik per jenis kesalahan menunjukkan kelemahan Anda sekilas.",
+      th:"สถิติแยกตามประเภทข้อผิดพลาด เห็นจุดอ่อนได้ทันที",
+      ru:"Статистика по типам ошибок сразу показывает слабые места.",
+      uk:"Статистика за типами помилок одразу показує слабкі місця.",
+      pl:"Statystyki typów błędów od razu pokazują słabe punkty.",
+      de:"Die Fehlertyp-Statistik zeigt deine Schwachstellen auf einen Blick.",
+      fr:"Les statistiques par type d'erreur révèlent vos points faibles d'un coup d'œil.",
+      es:"Las estadísticas por tipo de error muestran tus puntos débiles de un vistazo.",
+      it:"Le statistiche per tipo di errore mostrano subito i tuoi punti deboli.",
+      pt:"As estatísticas por tipo de erro mostram seus pontos fracos num relance.",
+      tr:"Hata türü istatistikleri zayıf noktalarınızı bir bakışta gösterir.",
+      ar:"إحصاءات أنواع الأخطاء تكشف نقاط ضعفك بنظرة."},
+   ]},
+];
+
+/* ═════════ manifest + 상태 ═════════ */
+const params = new URLSearchParams(location.search);
+const DEMO = params.get('demo') === '1';
+
+const MF = (window.SHOTS_MANIFEST && window.SHOTS_MANIFEST.pairs)
+  ? window.SHOTS_MANIFEST
+  : {version: 1, pairs: {}};
+if (DEMO){
+  // ?demo=1 — 실기기에서 스와이프 감을 확인하기 위한 자리표시자 모드 (전 조합 가짜 목록)
+  MF.pairs = {};
+  for (const l of LANGS){
+    for (const t of l.targets){
+      const counts = {};
+      for (const r of ROWS) counts[r.id] = r.caps.length;
+      MF.pairs[`${l.code}-${t}`] = {phone: {...counts}, tablet: {...counts}};
+    }
+  }
+}
+
+const manifestEmpty = Object.keys(MF.pairs).length === 0;
+const pairHas = (pair, device) => {
+  const p = MF.pairs[pair];
+  if (!p || !p[device]) return false;
+  return Object.values(p[device]).some(n => n > 0);
+};
+const pairAny = (pair) => pairHas(pair, 'phone') || pairHas(pair, 'tablet');
+const langAny = (code) => {
+  const l = LANGS.find(x => x.code === code);
+  return l.targets.some(t => pairAny(`${code}-${t}`));
+};
+
+const state = {lang: 'ko', target: 'en', device: 'phone'};
+
+// URL 파라미터로 초기 상태 지정 (?lang=vi&target=ko&device=tablet)
+{
+  const pl = params.get('lang');
+  if (pl && LANGS.some(l => l.code === pl)) state.lang = pl;
+  const cur = LANGS.find(l => l.code === state.lang);
+  state.target = cur.targets[0];
+  const pt = params.get('target');
+  if (pt && cur.targets.includes(pt)) state.target = pt;
+  const pd = params.get('device');
+  if (pd === 'tablet' || pd === 'phone') state.device = pd;
+}
+
+/* ═════════ 유틸 ═════════ */
+const $ = (id) => document.getElementById(id);
+function pick(dict){
+  if (dict[state.lang]) return {text: dict[state.lang], lang: state.lang};
+  return {text: dict.en, lang: 'en'};
+}
+function currentLang(){ return LANGS.find(l => l.code === state.lang); }
+function pairKey(){ return `${state.lang}-${state.target}`; }
+function pairLabel(){ return `${currentLang().name} → ${TARGET_NAME[state.target]}`; }
+function isRtl(){ return RTL.has(state.lang); }
+
+function thumbSrc(rowId, i){ return `shots/${pairKey()}/${state.device}/${rowId}-${i}.webp`; }
+function fullSrc(rowId, i){ return `shots/${pairKey()}/${state.device}/full/${rowId}-${i}.webp`; }
+
+/* ?demo=1 자리표시자 이미지 (실기기 스와이프 확인용) */
+function phSvg(rowTitle, idx, total, extra){
+  const phone = state.device === 'phone';
+  const w = phone ? 1080 : 1600, h = phone ? 2340 : 1000;
+  const svg =
+`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+<rect width="${w}" height="${h}" fill="#17151C"/>
+<rect x="0" y="0" width="${w}" height="${phone?190:120}" fill="#1F1B27"/>
+<rect x="${w*0.06}" y="${phone?70:38}" width="${w*0.34}" height="${phone?52:40}" rx="12" fill="#5B3FA0" opacity="0.85"/>
+<text x="50%" y="46%" text-anchor="middle" fill="#EDE7F8" font-family="sans-serif" font-size="${phone?92:72}" font-weight="700">${rowTitle}</text>
+<text x="50%" y="54%" text-anchor="middle" fill="#8B8696" font-family="sans-serif" font-size="${phone?58:46}">${idx} / ${total}</text>
+<text x="50%" y="92%" text-anchor="middle" fill="#5F5A6B" font-family="monospace" font-size="${phone?44:34}">${extra}</text>
+<rect x="1.5" y="1.5" width="${w-3}" height="${h-3}" rx="${phone?56:28}" fill="none" stroke="#332E40" stroke-width="3"/>
+</svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+/* ═════════ 사이트 헤더 (탭·언어 드롭다운) ═════════
+   갤러리에서 고른 언어가 ko면 한국어 사이트, 그 외엔 영어 사이트 기준으로 안내 */
+const NAV = {
+  ko: [
+    {href:'/#app',          label:'앱'},
+    {href:'/app.html',      label:'미리보기', on:true},
+    {href:'/support.html',  label:'문의'},
+    {href:'/terms.html',    label:'이용약관'},
+    {href:'/privacy.html',  label:'개인정보'},
+  ],
+  en: [
+    {href:'/en/#app',           label:'App'},
+    {href:'/app.html?lang=en',  label:'Preview', on:true},
+    {href:'/en/support.html',   label:'Contact'},
+    {href:'/en/terms.html',     label:'Terms'},
+    {href:'/en/privacy.html',   label:'Privacy'},
+  ],
+};
+function renderHeader(){
+  const mode = state.lang === 'ko' ? 'ko' : 'en';
+  $('brand-link').href = mode === 'ko' ? '/' : '/en/';
+  const nav = $('site-nav'); nav.replaceChildren();
+  for (const item of NAV[mode]){
+    const a = document.createElement('a');
+    a.href = item.href;
+    a.textContent = item.label;
+    if (item.on) a.className = 'on';
+    nav.append(a);
+  }
+  $('site-lang').value = mode;
+}
+$('site-lang').addEventListener('change', (e) => {
+  state.lang = e.target.value; // ko 또는 en
+  state.target = currentLang().targets[0];
+  renderAll();
+});
+
+/* ═════════ 컨트롤 ═════════ */
+function chip(label, on, onClick){
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'chip' + (on ? ' on' : '');
+  b.textContent = label;
+  b.addEventListener('click', onClick);
+  return b;
+}
+
+function renderUI(){
+  const rtl = isRtl();
+  const set = (id, dict, asHtml) => {
+    const el = $(id);
+    const c = pick(dict);
+    if (asHtml) el.innerHTML = c.text; else el.textContent = c.text;
+    el.lang = c.lang;
+    el.dir = rtl ? 'rtl' : 'ltr';
+  };
+  set('intro-title', UI.introTitle, true);
+  set('intro-sub', UI.introSub);
+  set('lbl-mylang', UI.myLang);
+  set('lbl-learnlang', UI.learnLang);
+  set('lbl-device', UI.device);
+  set('coming-note', UI.coming);
+  document.documentElement.lang = state.lang;
+}
+
+function renderControls(){
+  // 내 언어 — 스크린샷이 있는 언어만 노출 (아직 아무것도 없으면 전부 노출)
+  const seg = $('lang-seg'); seg.replaceChildren();
+  for (const l of LANGS){
+    if (!manifestEmpty && !langAny(l.code) && l.code !== state.lang) continue;
+    seg.append(chip(l.name, state.lang === l.code, () => {
+      state.lang = l.code;
+      const cur = currentLang();
+      if (!cur.targets.includes(state.target)) state.target = cur.targets[0];
+      renderAll();
+    }));
+  }
+
+  // 학습 언어 — 전 언어 노출, en·ko(자기 모국어 제외)만 활성, 나머지 회색
+  const tgt = $('tgt-seg'); tgt.replaceChildren();
+  const available = currentLang().targets;
+  for (const l of LANGS){
+    const enabled = available.includes(l.code) && (manifestEmpty || pairAny(`${state.lang}-${l.code}`) || l.code === state.target);
+    const b = chip(l.name, state.target === l.code, () => {
+      if (!enabled) return;
+      state.target = l.code;
+      renderAll();
+    });
+    if (!enabled) b.classList.add('off');
+    tgt.append(b);
+  }
+
+  // 기기 — 그 쌍에 스크린샷 없는 기기는 회색
+  const dev = $('dev-seg'); dev.replaceChildren();
+  for (const d of ['phone', 'tablet']){
+    const enabled = manifestEmpty || pairHas(pairKey(), d) || d === state.device;
+    const b = chip(pick(d === 'phone' ? UI.phone : UI.tablet).text, state.device === d, () => {
+      if (!enabled) return;
+      state.device = d;
+      renderAll();
+    });
+    if (!enabled) b.classList.add('off');
+    dev.append(b);
+  }
+}
+
+/* ═════════ 갤러리 ═════════ */
+function renderRows(){
+  const rows = $('rows'); rows.replaceChildren();
+  const pk = pairKey();
+  const counts = (MF.pairs[pk] && MF.pairs[pk][state.device]) ? MF.pairs[pk][state.device] : {};
+  const visible = ROWS.filter(r => (counts[r.id] || 0) > 0);
+  const total = visible.reduce((s, r) => s + counts[r.id], 0);
+  const rtl = isRtl();
+
+  const nowLine = $('now-line');
+  if (visible.length === 0){
+    nowLine.hidden = true;
+    const box = document.createElement('div');
+    box.className = 'empty';
+    const c = pick(UI.preparing);
+    box.textContent = c.text;
+    box.lang = c.lang;
+    box.dir = rtl ? 'rtl' : 'ltr';
+    rows.append(box);
+    return;
+  }
+  nowLine.hidden = false;
+  nowLine.innerHTML = `${pick(UI.nowViewing).text}: <b>${pairLabel()}</b> · <b>${pick(state.device === 'phone' ? UI.phone : UI.tablet).text}</b><span class="cnt">${visible.length} × ${total}</span>`;
+
+  visible.forEach((row, ri) => {
+    const n = counts[row.id];
+    const title = pick(row.title);
+
+    const sec = document.createElement('section');
+    sec.className = 'row';
+
+    const head = document.createElement('div');
+    head.className = 'row-head';
+    head.dir = rtl ? 'rtl' : 'ltr';
+
+    const titleLine = document.createElement('div');
+    titleLine.className = 'row-title';
+    const num = document.createElement('span');
+    num.className = 'row-num';
+    num.textContent = String(ri + 1).padStart(2, '0');
+    const name = document.createElement('h2');
+    name.className = 'row-name';
+    name.textContent = title.text;
+    name.lang = title.lang;
+    titleLine.append(num, name);
+
+    const desc = document.createElement('p');
+    desc.className = 'row-desc';
+    head.append(titleLine, desc);
+
+    const box = document.createElement('div');
+    box.className = 'car-box';
+    const car = document.createElement('div');
+    car.className = 'car';
+    car.dataset.device = state.device;
+    for (let i = 1; i <= n; i++){
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.alt = `${title.text} ${i}/${n}`;
+      img.src = DEMO ? phSvg(row.title.ko, i, n, `${pairLabel()} · ${state.device}`) : thumbSrc(row.id, i);
+      slide.append(img);
+      car.append(slide);
+    }
+
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'nav-btn prev'; prev.textContent = '‹'; prev.setAttribute('aria-label', 'Previous');
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'nav-btn next'; next.setAttribute('aria-label', 'Next'); next.textContent = '›';
+
+    const dots = document.createElement('div');
+    dots.className = 'dots';
+    dots.dataset.single = n <= 1 ? '1' : '0';
+    for (let i = 0; i < n; i++){ dots.append(document.createElement('i')); }
+
+    box.append(prev, car, next);
+    sec.append(head, box, dots);
+    rows.append(sec);
+
+    wireCarousel(car, prev, next, dots, desc, row, n);
+  });
+}
+
+/* 슬라이드 i의 설명: 촬영 장수가 설명 초안보다 많으면 마지막 설명을 유지 */
+function capOf(row, idx){
+  const caps = row.caps;
+  return pick(caps[Math.min(idx, caps.length - 1)]);
+}
+
+function setDesc(desc, row, idx, n){
+  const c = capOf(row, idx);
+  desc.replaceChildren();
+  if (n > 1){
+    const tag = document.createElement('span');
+    tag.className = 'idx';
+    tag.textContent = `${idx + 1}/${n}`;
+    desc.append(tag);
+  }
+  desc.append(document.createTextNode(c.text));
+  desc.lang = c.lang;
+}
+
+function wireCarousel(car, prev, next, dots, desc, row, n){
+  const step = () => {
+    const s = car.querySelector('.slide');
+    return s ? s.getBoundingClientRect().width + 14 : 260;
+  };
+
+  // 스샷 클릭 → 팝업 확대 (마우스 드래그로 넘긴 직후의 클릭은 무시)
+  let suppressClick = false;
+  [...car.querySelectorAll('.slide')].forEach((slide, i) => {
+    slide.addEventListener('click', () => {
+      if (suppressClick){ suppressClick = false; return; }
+      lbShow(row, i, n);
+    });
+  });
+
+  prev.addEventListener('click', () => car.scrollBy({left: -step(), behavior: 'smooth'}));
+  next.addEventListener('click', () => car.scrollBy({left: step(), behavior: 'smooth'}));
+
+  let raf = 0, lastIdx = -1, fadeTimer = 0;
+  const update = () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const idx = Math.min(n - 1, Math.max(0, Math.round(car.scrollLeft / step())));
+      dots.querySelectorAll('i').forEach((d, i) => d.classList.toggle('on', i === idx));
+      const max = car.scrollWidth - car.clientWidth - 4;
+      prev.dataset.off = car.scrollLeft <= 4 ? '1' : '0';
+      next.dataset.off = car.scrollLeft >= max ? '1' : '0';
+
+      if (idx !== lastIdx){
+        if (lastIdx === -1){
+          setDesc(desc, row, idx, n);
+        } else {
+          clearTimeout(fadeTimer);
+          desc.style.opacity = '0';
+          fadeTimer = setTimeout(() => {
+            setDesc(desc, row, idx, n);
+            desc.style.opacity = '1';
+          }, 160);
+        }
+        lastIdx = idx;
+      }
+    });
+  };
+  car.addEventListener('scroll', update, {passive: true});
+  update();
+
+  // 데스크톱 마우스 드래그로도 넘기기
+  let down = false, sx = 0, sl = 0, moved = false;
+  car.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    down = true; moved = false; sx = e.clientX; sl = car.scrollLeft;
+    car.style.scrollSnapType = 'none';
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - sx;
+    if (Math.abs(dx) > 3) moved = true;
+    car.scrollLeft = sl - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    if (!down) return;
+    down = false;
+    car.style.scrollSnapType = '';
+    if (moved){
+      suppressClick = true;
+      const idx = Math.round(car.scrollLeft / step());
+      car.scrollTo({left: idx * step(), behavior: 'smooth'});
+    }
+  });
+}
+
+/* ═════════ 라이트박스 ═════════ */
+const lb = {row: null, idx: 0, n: 0, open: false};
+const lbEl = $('lb'), lbImg = $('lb-img'), lbCap = $('lb-cap'), lbCount = $('lb-count');
+
+function lbShow(row, idx, n){
+  lb.row = row; lb.idx = idx; lb.n = n; lb.open = true;
+  const title = pick(row.title);
+  if (DEMO){
+    lbImg.src = phSvg(row.title.ko, idx + 1, n, `${pairLabel()} · full`);
+  } else {
+    // 원본 화질은 이 시점에만 로드. full 파일이 없으면 축소본으로 대체.
+    lbImg.onerror = () => { lbImg.onerror = null; lbImg.src = thumbSrc(row.id, idx + 1); };
+    lbImg.src = fullSrc(row.id, idx + 1);
+  }
+  lbImg.alt = `${title.text} ${idx + 1}/${n}`;
+  const c = capOf(row, idx);
+  lbCap.textContent = c.text; lbCap.lang = c.lang; lbCap.dir = RTL.has(c.lang) ? 'rtl' : 'ltr';
+  lbCount.textContent = `${idx + 1} / ${n}`;
+  lbEl.classList.add('open');
+  document.body.classList.add('lb-lock');
+}
+function lbClose(){
+  lb.open = false;
+  lbEl.classList.remove('open');
+  document.body.classList.remove('lb-lock');
+  lbImg.onerror = null;
+  lbImg.removeAttribute('src');
+}
+function lbNav(d){
+  if (!lb.open) return;
+  lbShow(lb.row, (lb.idx + d + lb.n) % lb.n, lb.n);
+}
+lbEl.addEventListener('click', (e) => { if (e.target === lbEl) lbClose(); });
+document.querySelector('.lb-close').addEventListener('click', lbClose);
+document.querySelector('.lb-prev').addEventListener('click', () => lbNav(-1));
+document.querySelector('.lb-next').addEventListener('click', () => lbNav(1));
+window.addEventListener('keydown', (e) => {
+  if (!lb.open) return;
+  if (e.key === 'Escape') lbClose();
+  else if (e.key === 'ArrowLeft') lbNav(-1);
+  else if (e.key === 'ArrowRight') lbNav(1);
+});
+let lbTouchX = null;
+lbEl.addEventListener('touchstart', (e) => { lbTouchX = e.touches[0].clientX; }, {passive: true});
+lbEl.addEventListener('touchend', (e) => {
+  if (lbTouchX === null) return;
+  const dx = e.changedTouches[0].clientX - lbTouchX;
+  lbTouchX = null;
+  if (Math.abs(dx) > 45) lbNav(dx < 0 ? 1 : -1);
+}, {passive: true});
+
+/* ═════════ 렌더 ═════════ */
+function renderAll(){ renderHeader(); renderUI(); renderControls(); renderRows(); }
+renderAll();
+</script>
+</body>
+</html>

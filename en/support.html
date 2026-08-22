@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Existential Labs</title>
+<meta name="description" content="Having trouble with GenRecall? Contact us here.">
+<link rel="canonical" href="https://existential-labs.com/en/support.html">
+<link rel="alternate" hreflang="ko" href="https://existential-labs.com/support.html">
+<link rel="alternate" hreflang="en" href="https://existential-labs.com/en/support.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --ink:#16141A; --paper:#F0EFF2; --card:#FFFFFF;
+    --violet:#5B3FA0; --violet-soft:#EDE7F8;
+    --muted:#635E6E; --rule:#D8D5DE;
+    --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.75;
+    letter-spacing:-0.01em;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+  a{color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet-soft)}
+  a:hover{border-bottom-color:var(--violet)}
+  a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px}
+
+  .label{
+    font-family:var(--mono);font-size:11px;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 14px;
+  }
+  header{border-bottom:1px solid var(--rule)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0}
+  .brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:0.06em;color:var(--ink);border:0}
+  .brand span{color:var(--violet)}
+  .nav-side{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  nav{display:flex;gap:20px;font-size:14px}
+  nav a{color:var(--muted);border:0}
+  nav a:hover{color:var(--violet)}
+  .site-lang{
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    border:1px solid var(--rule);border-radius:8px;background:var(--card);
+    padding:6px 8px;cursor:pointer;
+  }
+
+  .head{padding:64px 0 40px}
+  h1{font-size:clamp(26px,5vw,34px);line-height:1.35;font-weight:700;letter-spacing:-0.03em;margin:0 0 20px}
+  p{margin:0 0 16px}
+  .lead{color:var(--muted);max-width:56ch}
+
+  .mailbox{
+    background:var(--card);border:1px solid var(--rule);
+    border-left:3px solid var(--violet);border-radius:0 10px 10px 0;
+    padding:22px 24px;margin:0 0 8px;
+  }
+  .mailbox .addr{font-family:var(--mono);font-size:17px;margin:0 0 10px}
+  .mailbox .note{font-size:14px;color:var(--muted);margin:0}
+
+  section{padding:48px 0;border-top:1px solid var(--rule)}
+  h2{font-size:20px;font-weight:700;letter-spacing:-0.02em;margin:0 0 22px}
+
+  .qa{list-style:none;padding:0;margin:0}
+  .qa li{padding:20px 0;border-top:1px solid var(--rule)}
+  .qa li:first-child{border-top:0;padding-top:0}
+  .q{font-size:16px;font-weight:600;margin:0 0 6px}
+  .a{color:var(--muted);font-size:15px;margin:0}
+
+  .tips{list-style:none;padding:0;margin:0;font-size:15px;color:var(--muted)}
+  .tips li{padding-left:22px;position:relative;margin-bottom:8px}
+  .tips li::before{
+    content:'—';position:absolute;left:0;
+    font-family:var(--mono);color:var(--violet);
+  }
+
+  footer{border-top:1px solid var(--rule);padding:40px 0 64px}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+  .copy{margin-top:14px;font-size:13px;color:var(--muted)}
+
+  @media (max-width:520px){
+    body{font-size:16px}
+    .head{padding:48px 0 32px}
+    section{padding:38px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/en/">EXISTENTIAL<span>·</span>LABS</a>
+    <div class="nav-side">
+      <nav>
+        <a href="/en/#app">App</a>
+        <a href="/app.html?lang=en">Preview</a>
+        <a href="/en/support.html">Contact</a>
+        <a href="/en/terms.html">Terms</a>
+        <a href="/en/privacy.html">Privacy</a>
+      </nav>
+      <select class="site-lang" id="site-lang" aria-label="Language">
+        <option value="ko">한국어</option>
+        <option value="en" selected>English</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap head">
+    <p class="label">Support</p>
+    <h1>Stuck on something? Tell us.</h1>
+    <p class="lead">GenRecall is built by one person. I read and answer every email myself.</p>
+    <div class="mailbox">
+      <p class="addr"><a href="mailto:support@existential-labs.com">support@existential-labs.com</a></p>
+      <p class="note">We reply within 2–3 business days. No reply? Please check your spam folder.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>Including these makes things much faster</h2>
+      <ul class="tips">
+        <li>Which device you use (e.g. Galaxy S24, Android 14)</li>
+        <li>The app version (at the bottom of the Settings screen)</li>
+        <li>What you were doing when the problem happened</li>
+        <li>A screenshot, if you have one (it helps a lot)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="label">FAQ</p>
+      <h2>Frequently asked questions</h2>
+      <ul class="qa">
+        <li>
+          <p class="q">The grading looks wrong.</p>
+          <p class="a">AI grading can make mistakes. In the explanation view you can point at the part that looks wrong and ask for another look. Still not convinced? Send us an email.</p>
+        </li>
+        <li>
+          <p class="q">I want to cancel my subscription.</p>
+          <p class="a">Google Play app → Profile → Payments &amp; subscriptions → Subscriptions. Billing and refunds are handled by Google Play, so refund requests are also fastest through Google Play.</p>
+        </li>
+        <li>
+          <p class="q">Will I lose my learning history if I switch devices?</p>
+          <p class="a">Learning data is stored on your device and is not synced with the server, so it does not carry over when you switch devices.</p>
+        </li>
+        <li>
+          <p class="q">What happens to the sentences I write?</p>
+          <p class="a">We store and process them only to the extent needed for grading and review. Details are in the <a href="/en/privacy.html">Privacy Policy</a>.</p>
+        </li>
+        <li>
+          <p class="q">I want to delete my account and data.</p>
+          <p class="a">You can delete them in the app's Settings. If you cannot access the app, email us at the address above.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/en/">Home</a>
+      <a href="/en/privacy.html">Privacy Policy</a>
+      <a href="/en/terms.html">Terms of Service</a>
+    </div>
+    <p class="copy">© 2026 Existential Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('site-lang').addEventListener('change', function(e){
+  if (e.target.value === 'ko') location.href = '/support.html';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "genrecall-support-tools",
+  "private": true,
+  "description": "스크린샷 변환·manifest 생성 도구 (사이트 배포와 무관, GitHub Pages는 이 폴더를 정적 파일로만 취급)",
+  "type": "module",
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}
