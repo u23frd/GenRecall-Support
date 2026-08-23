@@ -126,10 +126,23 @@
     -webkit-overflow-scrolling:touch;
   }
   .car::-webkit-scrollbar{display:none}
-  .slide{flex:0 0 auto;scroll-snap-align:start;cursor:zoom-in}
+  .slide{flex:0 0 auto;scroll-snap-align:start;cursor:zoom-in;position:relative}
   .slide:active{cursor:grabbing}
   .car[data-device="phone"] .slide{width:min(250px,64vw)}
   .car[data-device="tablet"] .slide{width:min(560px,84vw)}
+  /* 끝 여백 — 마지막 사진도 왼쪽 끝까지 끌어올 수 있게(뒤쪽 장의 설명·점이 안 나오던 버그, 민재 제보 2026-08-23).
+     끝까지 돌리면 오른쪽이 비어 보이는 것이 이 방식의 정상 모습. 2장 이상 줄에만 JS가 붙인다. */
+  .car-end{flex:0 0 1px}
+  .car[data-device="phone"] .car-end{flex-basis:calc(100% - min(250px, 64vw) - 14px)}
+  .car[data-device="tablet"] .car-end{flex-basis:calc(100% - min(560px, 84vw) - 14px)}
+  /* 카드 이미지 = 기기 표준 비율로 고정 — 스크롤 캡처한 긴 이미지는 위쪽만 보이고, 전체는 팝업에서 */
+  .car[data-device="phone"] .slide img{aspect-ratio:1080/2098;object-fit:cover;object-position:top}
+  .car[data-device="tablet"] .slide img{aspect-ratio:2960/1803;object-fit:cover;object-position:top}
+  .tall-badge{
+    position:absolute;left:50%;bottom:12px;transform:translateX(-50%);
+    background:rgba(22,20,26,.62);color:#fff;font-size:11.5px;line-height:1;
+    padding:6px 11px;border-radius:999px;white-space:nowrap;pointer-events:none;
+  }
   .slide img{
     width:100%;display:block;border-radius:20px;
     border:1px solid var(--rule);
@@ -170,6 +183,14 @@
     max-width:min(92vw,1400px);max-height:84vh;width:auto;height:auto;display:block;
     border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.5);background:#17151C;
   }
+  /* 긴 이미지(스크롤 캡처)는 축소 대신 세로 스크롤로 전체를 본다 */
+  .lb-frame{max-height:84vh;display:flex;align-items:center;justify-content:center}
+  .lb-frame.tall{
+    display:block;overflow-y:auto;border-radius:16px;
+    max-width:min(92vw,640px);box-shadow:0 18px 60px rgba(0,0,0,.5);
+  }
+  .lb-frame.tall[data-device="tablet"]{max-width:min(92vw,1000px)}
+  .lb-frame.tall img{width:100%;max-width:none;max-height:none;border-radius:0;box-shadow:none}
   .lb-cap{
     position:fixed;left:0;right:0;bottom:16px;text-align:center;color:#fff;
     font-size:14.5px;line-height:1.5;text-shadow:0 1px 8px rgba(0,0,0,.7);
@@ -250,7 +271,7 @@
   <span class="lb-count" id="lb-count"></span>
   <button class="lb-btn lb-close" aria-label="Close">×</button>
   <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
-  <img id="lb-img" alt="">
+  <div class="lb-frame" id="lb-frame"><img id="lb-img" alt=""></div>
   <button class="lb-btn lb-next" aria-label="Next">›</button>
   <p class="lb-cap" id="lb-cap"></p>
 </div>
@@ -372,6 +393,13 @@ const UI = {
     id:"Sedang menampilkan", th:"กำลังดู", ru:"Сейчас показано", uk:"Зараз показано", pl:"Teraz wyświetlane",
     de:"Aktuelle Ansicht", fr:"Affichage actuel", es:"Viendo ahora", it:"Stai guardando", pt:"Exibindo agora",
     tr:"Şu an görüntülenen", ar:"العرض الحالي"},
+  tapFull:{
+    ko:"⤓ 눌러서 전체 보기", en:"⤓ Tap to view full", zh:"⤓ 点击查看完整", ja:"⤓ タップで全体を見る",
+    vi:"⤓ Chạm để xem toàn bộ", id:"⤓ Ketuk untuk lihat semua", th:"⤓ แตะเพื่อดูทั้งหมด",
+    ru:"⤓ Нажмите — весь экран", uk:"⤓ Натисніть — увесь екран", pl:"⤓ Dotknij, aby zobaczyć całość",
+    de:"⤓ Tippen für Gesamtansicht", fr:"⤓ Touchez pour tout voir", es:"⤓ Toca para ver todo",
+    it:"⤓ Tocca per vedere tutto", pt:"⤓ Toque para ver tudo", tr:"⤓ Tümünü görmek için dokunun",
+    ar:"⤓ اضغط لعرض الكل"},
   morePreparing:{
     ko:"나머지 화면은 준비 중입니다 — 곧 채워져요.",
     en:"More screens are on the way.",
@@ -1191,7 +1219,30 @@ function renderRows(){
       img.alt = `${title.text} ${i}/${n}`;
       img.src = DEMO ? phSvg(row.title.ko, i, n, `${pairLabel()} · ${state.device}`) : thumbSrc(row.id, i);
       slide.append(img);
+      // 스크롤 캡처(세로로 긴 원본)면 카드엔 위쪽만 보이므로 "전체 보기" 배지를 붙인다
+      const deviceNow = state.device;
+      img.addEventListener('load', () => {
+        const std = deviceNow === 'phone' ? 2098 / 1080 : 1803 / 2960;
+        const isTall = img.naturalHeight / img.naturalWidth > std * 1.15;
+        let b = slide.querySelector('.tall-badge');
+        if (isTall && !b){
+          b = document.createElement('span');
+          b.className = 'tall-badge';
+          const c = pick(UI.tapFull);
+          b.textContent = c.text;
+          b.lang = c.lang;
+          slide.append(b);
+        } else if (!isTall && b){
+          b.remove();
+        }
+      });
       car.append(slide);
+    }
+    if (n > 1){
+      // 끝 여백 — 마지막 사진까지 왼쪽 끝으로 끌어올 수 있게(설명·점이 마지막 장까지 도달)
+      const sp = document.createElement('div');
+      sp.className = 'car-end';
+      car.append(sp);
     }
 
     const prev = document.createElement('button');
@@ -1317,11 +1368,22 @@ function wireCarousel(car, prev, next, dots, desc, row, n){
 
 /* ═════════ 라이트박스 ═════════ */
 const lb = {row: null, idx: 0, n: 0, open: false};
-const lbEl = $('lb'), lbImg = $('lb-img'), lbCap = $('lb-cap'), lbCount = $('lb-count');
+const lbEl = $('lb'), lbImg = $('lb-img'), lbCap = $('lb-cap'), lbCount = $('lb-count'), lbFrame = $('lb-frame');
 
 function lbShow(row, idx, n){
   lb.row = row; lb.idx = idx; lb.n = n; lb.open = true;
   const title = pick(row.title);
+  // 긴 이미지(스크롤 캡처)면 화면맞춤 축소 대신 세로 스크롤 프레임으로
+  const deviceNow = state.device;
+  lbFrame.dataset.device = deviceNow;
+  lbFrame.classList.remove('tall');
+  lbImg.onload = () => {
+    const std = deviceNow === 'phone' ? 2098 / 1080 : 1803 / 2960;
+    if (lbImg.naturalHeight / lbImg.naturalWidth > std * 1.15){
+      lbFrame.classList.add('tall');
+      lbFrame.scrollTop = 0;
+    }
+  };
   if (DEMO){
     lbImg.src = phSvg(row.title.ko, idx + 1, n, `${pairLabel()} · full`);
   } else {
@@ -1341,6 +1403,8 @@ function lbClose(){
   lbEl.classList.remove('open');
   document.body.classList.remove('lb-lock');
   lbImg.onerror = null;
+  lbImg.onload = null;
+  lbFrame.classList.remove('tall');
   lbImg.removeAttribute('src');
 }
 function lbNav(d){
