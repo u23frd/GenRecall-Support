@@ -6,7 +6,7 @@
  *
  * convert 입력 폴더 구조(운영자가 정리해서 넣는다):
  *   <원본폴더>/<쌍코드 예: vi-en>/<phone|tablet>/<줄id>-<번호>.png
- *   줄id = writing · settings · layout · placement · ask · favorites · stats
+ *   줄id = langselect · writing · zen · grading · ask · placement · dashboard · favorites · stats · history
  *
  * 출력:
  *   shots/<쌍>/<기기>/<줄id>-<번호>.webp        (축소본 — 카루셀용)
@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
-const ROW_IDS = ['writing', 'settings', 'layout', 'placement', 'ask', 'favorites', 'stats'];
+const ROW_IDS = ['langselect', 'writing', 'zen', 'grading', 'ask', 'placement', 'dashboard', 'favorites', 'stats', 'history'];
 const DEVICES = ['phone', 'tablet'];
 const PAIR_RE = /^(ko|en|zh|ja|vi|id|th|ru|uk|pl|de|fr|es|it|pt|tr|ar)-(ko|en)$/;
 const FILE_RE = new RegExp(`^(${ROW_IDS.join('|')})-([0-9]+)\\.(png|jpg|jpeg|webp)$`, 'i');
