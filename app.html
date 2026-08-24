@@ -19,6 +19,8 @@
     --muted:#635E6E; --rule:#D8D5DE;
     --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    /* 갤러리 치수 — 와이드 레이아웃(§8.273 ① · 민재 B안 확정 2026-08-24). 슬라이드 폭을 바꾸면 tools/process-shots.mjs THUMB_WIDTH(표시폭×2)도 같이 맞춘다. */
+    --wrap:1280px; --slide-phone:400px; --slide-tablet:900px;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -27,7 +29,7 @@
     font-family:var(--sans);font-size:17px;line-height:1.75;
     letter-spacing:-0.01em;word-break:keep-all;
   }
-  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
   a{color:var(--violet);text-decoration:none;border-bottom:1px solid var(--violet-soft)}
   a:hover{border-bottom-color:var(--violet)}
   a:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:2px}
@@ -128,13 +130,13 @@
   .car::-webkit-scrollbar{display:none}
   .slide{flex:0 0 auto;scroll-snap-align:start;cursor:zoom-in;position:relative}
   .slide:active{cursor:grabbing}
-  .car[data-device="phone"] .slide{width:min(250px,64vw)}
-  .car[data-device="tablet"] .slide{width:min(560px,84vw)}
+  .car[data-device="phone"] .slide{width:min(var(--slide-phone),64vw)}
+  .car[data-device="tablet"] .slide{width:min(var(--slide-tablet),84vw)}
   /* 끝 여백 — 마지막 사진도 왼쪽 끝까지 끌어올 수 있게(뒤쪽 장의 설명·점이 안 나오던 버그, 민재 제보 2026-08-23).
      끝까지 돌리면 오른쪽이 비어 보이는 것이 이 방식의 정상 모습. 2장 이상 줄에만 JS가 붙인다. */
   .car-end{flex:0 0 1px}
-  .car[data-device="phone"] .car-end{flex-basis:calc(100% - min(250px, 64vw) - 14px)}
-  .car[data-device="tablet"] .car-end{flex-basis:calc(100% - min(560px, 84vw) - 14px)}
+  .car[data-device="phone"] .car-end{flex-basis:calc(100% - min(var(--slide-phone), 64vw) - 14px)}
+  .car[data-device="tablet"] .car-end{flex-basis:calc(100% - min(var(--slide-tablet), 84vw) - 14px)}
   /* 카드 이미지 = 기기 표준 비율로 고정 — 스크롤 캡처한 긴 이미지는 위쪽만 보이고, 전체는 팝업에서 */
   .car[data-device="phone"] .slide img{aspect-ratio:1080/2098;object-fit:cover;object-position:top}
   .car[data-device="tablet"] .slide img{aspect-ratio:2960/1803;object-fit:cover;object-position:top}
