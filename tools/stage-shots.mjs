@@ -33,6 +33,9 @@ function mapName(raw, code, shift){
   let m;
   if (name === '모든언어선택' || /^Screenshot_\d/.test(name)) return ['langselect', 1];
   if (name.startsWith('언어선택')) return ['langselect', 2];
+  // 민재 규약 2026-08-24 2차: '<언어명>언어선택' = 전 배울언어판(nameBy 번역 완비 후 재촬영 — §8.275).
+  // '모든언어선택'은 첫 규칙이, '언어선택 <언어명>'(현재 한/영판)은 둘째 규칙이 먼저 잡아 여기 안 온다.
+  if (name.endsWith('언어선택')) return ['langselect', 1];
   if ((m = name.match(/^작문첫화면(\d+)$/))) return ['writing', +m[1]];
   if (name === '작문홈') return ['writing', 1];
   if (name === '젠') return ['layout', 2];

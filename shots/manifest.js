@@ -6,7 +6,7 @@ window.SHOTS_MANIFEST = {
   "pairs": {
     "ar-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -14,7 +14,7 @@ window.SHOTS_MANIFEST = {
     },
     "ar-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -22,7 +22,7 @@ window.SHOTS_MANIFEST = {
     },
     "de-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -30,7 +30,7 @@ window.SHOTS_MANIFEST = {
     },
     "de-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -62,7 +62,7 @@ window.SHOTS_MANIFEST = {
     },
     "es-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -70,7 +70,7 @@ window.SHOTS_MANIFEST = {
     },
     "es-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -94,7 +94,7 @@ window.SHOTS_MANIFEST = {
     },
     "id-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -102,7 +102,7 @@ window.SHOTS_MANIFEST = {
     },
     "id-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -110,7 +110,7 @@ window.SHOTS_MANIFEST = {
     },
     "it-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -118,7 +118,7 @@ window.SHOTS_MANIFEST = {
     },
     "it-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -126,7 +126,7 @@ window.SHOTS_MANIFEST = {
     },
     "ja-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -134,7 +134,7 @@ window.SHOTS_MANIFEST = {
     },
     "ja-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -166,7 +166,7 @@ window.SHOTS_MANIFEST = {
     },
     "pl-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -174,7 +174,7 @@ window.SHOTS_MANIFEST = {
     },
     "pl-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -182,7 +182,7 @@ window.SHOTS_MANIFEST = {
     },
     "pt-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -190,7 +190,7 @@ window.SHOTS_MANIFEST = {
     },
     "pt-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -198,7 +198,7 @@ window.SHOTS_MANIFEST = {
     },
     "ru-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -206,7 +206,7 @@ window.SHOTS_MANIFEST = {
     },
     "ru-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -214,7 +214,7 @@ window.SHOTS_MANIFEST = {
     },
     "th-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -222,7 +222,7 @@ window.SHOTS_MANIFEST = {
     },
     "th-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -230,7 +230,7 @@ window.SHOTS_MANIFEST = {
     },
     "tr-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -238,7 +238,7 @@ window.SHOTS_MANIFEST = {
     },
     "tr-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -246,7 +246,7 @@ window.SHOTS_MANIFEST = {
     },
     "uk-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -254,7 +254,7 @@ window.SHOTS_MANIFEST = {
     },
     "uk-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -262,7 +262,7 @@ window.SHOTS_MANIFEST = {
     },
     "vi-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -270,7 +270,7 @@ window.SHOTS_MANIFEST = {
     },
     "vi-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -278,7 +278,7 @@ window.SHOTS_MANIFEST = {
     },
     "zh-en": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
@@ -286,7 +286,7 @@ window.SHOTS_MANIFEST = {
     },
     "zh-ko": {
       "phone": {
-        "langselect": 2
+        "langselect": 1
       },
       "tablet": {
         "langselect": 2
