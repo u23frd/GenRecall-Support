@@ -115,6 +115,9 @@
     font-size:15px;font-weight:600;
   }
   .store:hover{background:var(--violet);border:0}
+  .store-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .store.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+  .store.ghost:hover{background:transparent;color:var(--violet);border-color:var(--violet)}
 
   /* ── 문의 ── */
   .mail{
@@ -162,7 +165,8 @@
   <div class="wrap bar">
     <a class="brand" href="/">EXISTENTIAL<span>·</span>LABS</a>
     <nav>
-      <a href="#app">앱</a>
+      <a href="/">홈</a>
+      <a href="/app.html">앱</a>
       <a href="/support.html">문의</a>
       <a href="/terms.html">이용약관</a>
       <a href="/privacy.html">개인정보</a>
@@ -189,8 +193,12 @@
             <p>보기에서 고르는 문제가 아니라 직접 작문합니다. 떠올려서 쓰는 과정이 기억에 남습니다.</p>
           </li>
           <li>
+            <h3>매번 달라지는 상황의 출제문</h3>
+            <p>동일한 상황이 거의 반복되지 않는 시스템으로 매번 새로운 상황을 만나서 작문해보세요.</p>
+          </li>
+          <li>
             <h3>왜 어색한지 설명하는 채점</h3>
-            <p>맞고 틀림만 알려주지 않습니다. 자연스러운 표현과 그 이유를 함께 보여줍니다.</p>
+            <p>맞고 틀림만 알려주지 않습니다. 자연스러운 표현과 알아야 할 것, 그 이유를 함께 보여줍니다.</p>
           </li>
           <li>
             <h3>내 수준에 맞춰지는 난이도</h3>
@@ -198,7 +206,10 @@
           </li>
         </ul>
         <!-- TODO: 출시 후 실제 스토어 링크로 교체 -->
-        <a class="store" href="#" aria-disabled="true">Google Play에서 곧 만나요</a>
+        <div class="store-row">
+          <a class="store" href="#" aria-disabled="true">Google Play에서 곧 만나요</a>
+          <a class="store ghost" href="/app.html">앱 미리보기</a>
+        </div>
       </div>
     </div>
   </section>

@@ -117,6 +117,9 @@
     font-size:15px;font-weight:600;
   }
   .store:hover{background:var(--violet);border:0}
+  .store-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .store.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+  .store.ghost:hover{background:transparent;color:var(--violet);border-color:var(--violet)}
 
   .mail{font-family:var(--mono);font-size:17px}
 
@@ -161,8 +164,8 @@
     <a class="brand" href="/en/">EXISTENTIAL<span>·</span>LABS</a>
     <div class="nav-side">
       <nav>
-        <a href="#app">App</a>
-        <a href="/app.html?lang=en">Preview</a>
+        <a href="/en/">Home</a>
+        <a href="/app.html?lang=en">App</a>
         <a href="/en/support.html">Contact</a>
         <a href="/en/terms.html">Terms</a>
         <a href="/en/privacy.html">Privacy</a>
@@ -194,8 +197,12 @@
             <p>No picking from options — you write the sentence yourself. Recalling and producing is what makes it stick.</p>
           </li>
           <li>
+            <h3>A new situation every time</h3>
+            <p>The system almost never repeats a scenario, so every prompt puts you in a fresh situation to write about.</p>
+          </li>
+          <li>
             <h3>Grading that explains why it sounds off</h3>
-            <p>Not just right or wrong. You see the natural way to say it, together with the reason.</p>
+            <p>Not just right or wrong. You see the natural way to say it, what you need to know, and the reason why.</p>
           </li>
           <li>
             <h3>Difficulty that adapts to you</h3>
@@ -203,7 +210,10 @@
           </li>
         </ul>
         <!-- TODO: replace with the real store link after launch -->
-        <a class="store" href="#" aria-disabled="true">Coming soon on Google Play</a>
+        <div class="store-row">
+          <a class="store" href="#" aria-disabled="true">Coming soon on Google Play</a>
+          <a class="store ghost" href="/app.html?lang=en">Preview the app</a>
+        </div>
       </div>
     </div>
   </section>
