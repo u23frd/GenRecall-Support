@@ -6,56 +6,56 @@ window.SHOTS_MANIFEST = {
   "pairs": {
     "ar-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ar-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "de-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "de-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "en-ko": {
       "phone": {
-        "langselect": 1,
+        "langselect": 2,
         "writing": 2,
         "zen": 1,
         "grading": 6,
         "ask": 1,
-        "placement": 8,
+        "placement": 9,
         "dashboard": 1,
         "favorites": 2,
         "stats": 3,
         "history": 1
       },
       "tablet": {
-        "langselect": 1,
+        "langselect": 2,
         "writing": 1,
         "zen": 1,
         "grading": 3,
         "ask": 2,
-        "placement": 5,
+        "placement": 6,
         "dashboard": 1,
         "favorites": 2,
         "stats": 1,
@@ -64,104 +64,98 @@ window.SHOTS_MANIFEST = {
     },
     "es-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "es-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "fr-en": {
-      "phone": {
-        "langselect": 1
-      },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "fr-ko": {
-      "phone": {
-        "langselect": 1
-      },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "id-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "id-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "it-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "it-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ja-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ja-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ko-en": {
       "phone": {
-        "langselect": 1,
+        "langselect": 2,
         "writing": 2,
         "zen": 1,
         "grading": 6,
         "ask": 1,
-        "placement": 8,
+        "placement": 9,
         "dashboard": 1,
         "favorites": 2,
         "stats": 3,
         "history": 1
       },
       "tablet": {
-        "langselect": 1,
+        "langselect": 2,
         "writing": 1,
         "zen": 1,
         "grading": 3,
         "ask": 1,
-        "placement": 5,
+        "placement": 6,
         "dashboard": 1,
         "favorites": 2,
         "stats": 1,
@@ -170,130 +164,130 @@ window.SHOTS_MANIFEST = {
     },
     "pl-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "pl-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "pt-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "pt-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ru-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "ru-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "th-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "th-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "tr-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "tr-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "uk-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "uk-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "vi-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "vi-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "zh-en": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     },
     "zh-ko": {
       "phone": {
-        "langselect": 1
+        "langselect": 2
       },
       "tablet": {
-        "langselect": 1
+        "langselect": 2
       }
     }
   }
