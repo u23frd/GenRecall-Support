@@ -1,6 +1,6 @@
 /* 스크린샷 목록 — tools/process-shots.mjs가 자동 재생성합니다. 손으로 고치지 마세요.
    구조: pairs["<모국어>-<학습언어>"][phone|tablet]["<줄id>"] = 장수
-   줄id = langselect · writing · zen · grading · ask · placement · dashboard · favorites · stats · history */
+   줄id = langselect · writing · grading · ask · placement · favorites · stats · history · layout */
 window.SHOTS_MANIFEST = {
   "version": 1,
   "pairs": {
@@ -40,26 +40,24 @@ window.SHOTS_MANIFEST = {
       "phone": {
         "langselect": 2,
         "writing": 2,
-        "zen": 1,
         "grading": 7,
         "ask": 1,
         "placement": 9,
-        "dashboard": 1,
         "favorites": 2,
         "stats": 3,
-        "history": 1
+        "history": 1,
+        "layout": 2
       },
       "tablet": {
         "langselect": 2,
         "writing": 1,
-        "zen": 1,
         "grading": 3,
         "ask": 2,
         "placement": 6,
-        "dashboard": 1,
         "favorites": 2,
         "stats": 1,
-        "history": 1
+        "history": 1,
+        "layout": 2
       }
     },
     "es-en": {
@@ -79,11 +77,17 @@ window.SHOTS_MANIFEST = {
       }
     },
     "fr-en": {
+      "phone": {
+        "langselect": 1
+      },
       "tablet": {
         "langselect": 2
       }
     },
     "fr-ko": {
+      "phone": {
+        "langselect": 1
+      },
       "tablet": {
         "langselect": 2
       }
@@ -140,26 +144,24 @@ window.SHOTS_MANIFEST = {
       "phone": {
         "langselect": 2,
         "writing": 2,
-        "zen": 1,
         "grading": 7,
         "ask": 1,
         "placement": 9,
-        "dashboard": 1,
         "favorites": 2,
         "stats": 3,
-        "history": 1
+        "history": 1,
+        "layout": 2
       },
       "tablet": {
         "langselect": 2,
         "writing": 1,
-        "zen": 1,
         "grading": 3,
         "ask": 1,
         "placement": 6,
-        "dashboard": 1,
         "favorites": 2,
         "stats": 1,
-        "history": 1
+        "history": 1,
+        "layout": 2
       }
     },
     "pl-en": {

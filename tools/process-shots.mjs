@@ -6,7 +6,7 @@
  *
  * convert 입력 폴더 구조(운영자가 정리해서 넣는다):
  *   <원본폴더>/<쌍코드 예: vi-en>/<phone|tablet>/<줄id>-<번호>.png
- *   줄id = langselect · writing · zen · grading · ask · placement · dashboard · favorites · stats · history
+ *   줄id = langselect · writing · grading · ask · placement · favorites · stats · history · layout
  *
  * 출력:
  *   shots/<쌍>/<기기>/<줄id>-<번호>.webp        (축소본 — 카루셀용)
@@ -19,7 +19,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
-const ROW_IDS = ['langselect', 'writing', 'zen', 'grading', 'ask', 'placement', 'dashboard', 'favorites', 'stats', 'history'];
+// 줄 재편(§8.273 ② · 2026-08-24): zen·dashboard 줄 삭제 → 맨 끝 'layout' 줄(1=대시보드·2=젠)로 통합.
+const ROW_IDS = ['langselect', 'writing', 'grading', 'ask', 'placement', 'favorites', 'stats', 'history', 'layout'];
 const DEVICES = ['phone', 'tablet'];
 const PAIR_RE = /^(ko|en|zh|ja|vi|id|th|ru|uk|pl|de|fr|es|it|pt|tr|ar)-(ko|en)$/;
 const FILE_RE = new RegExp(`^(${ROW_IDS.join('|')})-([0-9]+)\\.(png|jpg|jpeg|webp)$`, 'i');
@@ -27,8 +28,8 @@ const FILE_RE = new RegExp(`^(${ROW_IDS.join('|')})-([0-9]+)\\.(png|jpg|jpeg|web
 const REPO = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
 const SHOTS = path.join(REPO, 'shots');
 
-// 축소본 폭 = 화면 표시폭(약 250/560 CSS px)의 2배(레티나). 팝업(full)은 원본 그대로.
-const THUMB_WIDTH = {phone: 500, tablet: 1120};
+// 축소본 폭 = 화면 표시폭(400/900 CSS px — app.html :root --slide-*)의 2배(레티나). 팝업(full)은 원본 그대로.
+const THUMB_WIDTH = {phone: 800, tablet: 1800};
 const THUMB_QUALITY = 80;
 const FULL_QUALITY = 85;
 
