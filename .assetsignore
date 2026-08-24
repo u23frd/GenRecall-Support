@@ -1,0 +1,7 @@
+# Cloudflare 배포에서 제외할 파일 (gitignore 문법 — wrangler가 읽음)
+# 계기 2026-08-24: .git/objects/pack이 26.8MB가 되어 파일당 25MB 한도에 걸려 배포 실패.
+# .git은 사이트 파일이 아니므로 영구 제외 — 히스토리가 더 커져도 재발하지 않는다.
+.git
+.gitignore
+.assetsignore
+tools
