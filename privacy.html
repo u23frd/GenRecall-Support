@@ -28,9 +28,18 @@
   ul { padding-left: 20px; }
   li { margin: 4px 0; }
   .muted { color: #687080; font-size: 0.9rem; }
+  .lang-bar { text-align: right; font-size: 0.9rem; margin-bottom: 18px; }
+  .lang-bar select { font: inherit; padding: 3px 6px; }
 </style>
 </head>
 <body>
+<p class="lang-bar">
+  <select id="site-lang" aria-label="Language">
+    <option value="ko" selected>한국어</option>
+    <option value="en">English</option>
+  </select>
+</p>
+
 <h1>개인정보처리방침</h1>
 <p class="muted">GenRecall</p>
 <p class="date"><strong>시행일: 2026-06-22 · 최종 개정: 2026-07-16</strong></p>
@@ -111,5 +120,11 @@
   <li>개인정보 관련 문의·요청: <strong><a href="mailto:support@existential-labs.com">support@existential-labs.com</a></strong></li>
   <li>운영자: Exi</li>
 </ul>
+
+<script>
+document.getElementById('site-lang').addEventListener('change', function(e){
+  if (e.target.value === 'en') location.href = '/en/privacy.html';
+});
+</script>
 </body>
 </html>

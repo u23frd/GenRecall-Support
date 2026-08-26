@@ -73,9 +73,15 @@
     letter-spacing:0.06em;color:var(--ink);border:0;
   }
   .brand span{color:var(--violet)}
+  .nav-side{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
   nav{display:flex;gap:20px;font-size:14px}
   nav a{color:var(--muted);border:0}
   nav a:hover{color:var(--violet)}
+  .site-lang{
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    border:1px solid var(--rule);border-radius:8px;background:var(--card);
+    padding:6px 8px;cursor:pointer;
+  }
 
   /* ── 히어로 ── */
   .hero{padding:80px 0 64px}
@@ -168,13 +174,19 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="/">EXISTENTIAL<span>·</span>LABS</a>
-    <nav>
-      <a href="/">홈</a>
-      <a href="/app.html">앱</a>
-      <a href="/support.html">문의</a>
-      <a href="/terms.html">이용약관</a>
-      <a href="/privacy.html">개인정보</a>
-    </nav>
+    <div class="nav-side">
+      <nav>
+        <a href="/">홈</a>
+        <a href="/app.html">앱</a>
+        <a href="/support.html">문의</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보</a>
+      </nav>
+      <select class="site-lang" id="site-lang" aria-label="Language">
+        <option value="ko" selected>한국어</option>
+        <option value="en">English</option>
+      </select>
+    </div>
   </div>
 </header>
 
@@ -254,5 +266,10 @@
   </div>
 </footer>
 
+<script>
+document.getElementById('site-lang').addEventListener('change', function(e){
+  if (e.target.value === 'en') location.href = '/en/';
+});
+</script>
 </body>
 </html>
