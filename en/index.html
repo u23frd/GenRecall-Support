@@ -103,7 +103,10 @@
     border:1px solid var(--rule);
     border-radius:14px;
     padding:28px;
+    overflow:hidden;
   }
+  /* Banner across the top of the card — negative margins cancel the card padding so it runs edge to edge */
+  .app-shot{display:block;width:calc(100% + 56px);height:auto;margin:-28px -28px 26px}
   .app-name{font-size:24px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px}
   .app-tag{color:var(--muted);margin:0 0 24px}
   .feat{list-style:none;padding:0;margin:0}
@@ -149,6 +152,7 @@
     .hero{padding:56px 0 44px}
     section{padding:44px 0}
     .app{padding:22px}
+    .app-shot{width:calc(100% + 44px);margin:-22px -22px 20px}
     .biz dl{grid-template-columns:1fr;gap:0}
     .biz dt{margin-top:10px}
   }
@@ -189,6 +193,8 @@
     <div class="wrap">
       <p class="label">Product</p>
       <div class="app">
+        <img class="app-shot" src="/img/product-en.webp" width="1400" height="684" decoding="async"
+             alt="GenRecall — “Write in Korean, your AI tutor checks every line.” A result screen showing a score of 92, feedback on the correction, and expressions to learn.">
         <p class="app-name">GenRecall</p>
         <p class="app-tag">See the meaning in your language, then write the sentence in the language you are learning. AI grades it and explains what to fix — and why.</p>
         <ul class="feat">
