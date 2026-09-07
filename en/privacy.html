@@ -50,13 +50,13 @@
 
 <h1>Privacy Policy</h1>
 <p class="muted">GenRecall</p>
-<p class="date"><strong>Effective date: 2026-06-22 · Last revised: 2026-07-16</strong></p>
+<p class="date"><strong>Effective date: 2026-06-22 · Last revised: 2026-09-05</strong></p>
 
 <p class="notice">This English translation is provided for convenience only. The <a href="/privacy.html">Korean original</a> is the legally binding version and prevails in case of any discrepancy.</p>
 
 <p>GenRecall (the "Service") takes your personal data seriously and complies with applicable laws, including the Personal Information Protection Act of the Republic of Korea. This policy explains what data the Service collects and how it is used, stored, and destroyed.</p>
 
-<p><strong>Summary:</strong> Your <strong>learning history (the answers you write, scores, review schedule, statistics, favorites, and notes) is stored on your device</strong> and is not synced to the server. The server stores information needed to run the Service, such as your account, subscription, and usage. To grade your writing with AI, the sentences you write are sent to the grading providers (Anthropic, OpenAI).</p>
+<p><strong>Summary:</strong> Your <strong>learning history (the answers you write, scores, review schedule, statistics, favorites, and notes) is stored on your device</strong> and is not synced to the server. The server stores information needed to run the Service, such as your account, subscription, and usage. To grade your writing with AI, the sentences you write are sent to the grading providers (OpenAI, Anthropic). Free users are shown advertising, and an advertising identifier is sent to Google when ads are served.</p>
 
 <h2>Account and data deletion requests</h2>
 <p>If you would like your GenRecall account and related data deleted, you can request it in either of these ways.</p>
@@ -64,18 +64,28 @@
   <li><strong>In the app</strong>: Use <strong>"Delete account"</strong> in the Settings screen to delete your server account and associated data, together with the learning history stored on your device.</li>
   <li><strong>By email</strong>: Write to <a href="mailto:support@existential-labs.com">support@existential-labs.com</a> with <strong>"Account deletion request"</strong> in the subject line, including the email address you signed up with.</li>
 </ul>
-<p>Within <strong>7 business days</strong> of receiving a request, we delete the following data stored on the server: account information (email, name, account identifier), subscription status, usage records (quotas), device link records, sentence-exposure history, and pending grading items. Learning history stored on your device is removed via "Delete account", "Reset all", or by uninstalling the app. Items that applicable law requires us to retain for a certain period are stored separately for that period and then destroyed.</p>
+<p>Within <strong>7 business days</strong> of receiving a request, we delete the following data stored on the server: account information (email, name, account identifier), subscription status, usage records (quotas), device link records, sentence-exposure history, pending grading items, and feedback you have sent. Learning history stored on your device is removed via "Delete account", "Reset all", or by uninstalling the app. Items that applicable law requires us to retain for a certain period are stored separately for that period and then destroyed, and <strong>to prevent abuse, your refund history and whether you have used the free level test remain in a form that cannot identify you</strong> (see "4. Retention and destruction" below).</p>
 
 <h2>1. Data we collect and process</h2>
 <ul>
   <li><strong>Account information</strong>: The email address and display name provided at social sign-in (such as Google), and an account identifier issued by the Service. <em>(stored on server)</em></li>
-  <li><strong>The answers you write</strong>: To grade your writing with AI, the sentences you write are sent to the grading providers (Anthropic, OpenAI) for grading and explanations. Answers are not stored permanently on our server; only if grading temporarily fails is an answer kept briefly in a retry queue and then deleted. <em>(sent to third parties · not stored permanently on server)</em></li>
-  <li><strong>Learning history</strong>: Review schedule (SRS), your answers and score history, progress and weak-point statistics, notes and favorites, and level-test results. <strong>This data is stored on your device and is not sent to or synced with the server.</strong> <em>(stored on device)</em></li>
+  <li><strong>The answers you write</strong>: To grade your writing with AI, the sentences you write are sent to the grading providers (OpenAI, Anthropic) for grading and explanations. Answers are not stored permanently on our server. Two exceptions — (1) if grading temporarily fails, the answer is kept in a retry queue for <strong>up to 14 days</strong> and then deleted; (2) if you submit a <strong>grading appeal</strong>, the task sentence, your answer, the score, and the explanation for that item are attached to your inquiry and retained. <em>(sent to third parties · not stored permanently on server)</em></li>
+  <li><strong>Learning history</strong>: Review schedule (SRS), your answers and score history, progress and weak-point statistics, notes and favorites. <strong>This data is stored on your device and is not sent to or synced with the server.</strong> <em>(stored on device)</em></li>
+  <li><strong>Level test</strong>: Test items and your answers are not kept on the server after grading, but the <strong>level test report (the AI evaluation text) is stored on the server so that the result is not lost</strong> (so you can see it again even if the app closes before you receive it). It is deleted together with your account. <em>(stored on server)</em></li>
   <li><strong>Generated content</strong>: Practice sentences generated by the Service (task sentences, not your answers) and per-account exposure history (to prevent repeated tasks and maintain content quality). <em>(stored on server)</em></li>
   <li><strong>Subscription/payment status</strong>: Subscription tier (free/subscribed). Actual payments and receipts are handled by the app market (Google Play) and the payment service provider (RevenueCat); the Service does not store payment-method details such as card numbers. <em>(stored on server)</em></li>
   <li><strong>Usage records</strong>: Per-feature usage counts (quotas) and error-diagnosis logs. <em>(stored on server)</em></li>
   <li><strong>Values stored on your device</strong>: The sign-in session token (kept in your device's secure storage).</li>
-  <li><strong>Device identifiers</strong>: We may collect and use device identifiers for subscription/payment attribution (payment SDK), for preventing abuse (such as collecting free benefits more than once), and for advertising in the future. <em>(stored on server)</em></li>
+  <li><strong>Device identifier</strong>: To prevent abuse (collecting free benefits more than once, repeated refunds), we collect <strong>the device marker Android assigns to this app</strong>. It is not a phone number or a hardware serial number (such as an IMEI), and <strong>a different value is given to other developers' apps</strong>, so it cannot be used to track you across apps. This value <strong>survives uninstalling and reinstalling the app</strong>, and changes when the device is factory reset. <em>(stored on server)</em><br>The <strong>advertising identifier (ad ID)</strong> used to serve ads is separate from this and is sent directly to Google by the ads SDK (see 8. Advertising below). <em>(not stored on our server)</em></li>
+  <li><strong>Inquiries and feedback</strong>: The title, body, and type of the feedback you send, plus context such as the screen, app version, and language pair at the time of submission. <em>(stored on server · sent to operator alert channel)</em></li>
+  <li><strong>Reports of harmful content (🚩)</strong>: When you report text generated by AI, we receive <strong>the reason, the report target, the reported text itself</strong>, <strong>any description you write (optional)</strong>, and the screen, app version, and language pair at the time of submission, so that we can investigate. <em>(stored on server · sent to operator alert channel)</em>
+    <ul>
+      <li><strong>The reported text</strong> depends on the target — Given sentence · Feedback · Nuance explanation · Other ways to say it · Expressions to learn · Teacher's answer · Level test report.</li>
+      <li><strong>If you report a "Teacher's answer", the whole conversation is submitted with it</strong> — including the questions you asked. We need to see which question produced that answer in order to fix the cause, and the conversation is delivered with the speakers marked.</li>
+      <li><strong>Reporting from a practice item also sends that item's given sentence</strong> (whichever target you chose) — this identifies the item in question and lets us exclude that sentence from future tasks if necessary. <em>Reports of a level test report are an exception and carry no given sentence, because the report is not text belonging to one specific item.</em></li>
+      <li>To prevent the same content being reported repeatedly, we also store an <strong>irreversibly transformed value</strong> (a fingerprint) of the reported text.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2>2. Purposes of use</h2>
@@ -84,6 +94,8 @@
   <li>Maintaining your account and session (automatic sign-in) and providing features according to subscription status.</li>
   <li>Managing free-tier limits and preventing misuse and abuse.</li>
   <li>Improving service quality and responding to errors.</li>
+  <li>Receiving and responding to user inquiries and feedback.</li>
+  <li><strong>Receiving, investigating, and acting on reports of harmful content</strong> — used to exclude the offending given sentence from future tasks, or to correct the AI grading and task-generation rules.</li>
 </ul>
 
 <h2>3. Third-party processing</h2>
@@ -91,10 +103,12 @@
 <table>
   <thead><tr><th>Processor</th><th>Entrusted work</th><th>Data transferred</th></tr></thead>
   <tbody>
+    <tr><td>OpenAI</td><td>AI grading, explanations, level test reports, answers to your questions, task generation</td><td>Sentences you write and task text</td></tr>
     <tr><td>Anthropic</td><td>AI grading, explanations, task generation</td><td>Sentences you write and task text</td></tr>
-    <tr><td>OpenAI</td><td>AI grading, explanations, task generation</td><td>Sentences you write and task text</td></tr>
     <tr><td>Google</td><td>Social sign-in authentication</td><td>Sign-in token</td></tr>
-    <tr><td>RevenueCat / Google Play</td><td>Subscription and payment processing</td><td>Subscription status and receipts</td></tr>
+    <tr><td>Google AdMob</td><td>Serving ads to free users (no ads while subscribed)</td><td>Advertising identifier (ad ID), device and app information (model, OS, language, app version), IP address, ad impression and click records</td></tr>
+    <tr><td>Telegram</td><td>Real-time operator alerts for feedback, grading appeals, and <strong>reports of harmful content</strong> (operational response)</td><td>Feedback title and body, your email and account identifier, screen / app version / language-pair context; <strong>for a grading appeal</strong>, that item's given sentence, your answer, the score, and the AI explanation; <strong>for a report</strong>, the reason, the target, <strong>the reported AI text</strong>, and that item's given sentence (for a "Teacher's answer" report, <strong>the whole conversation including your questions</strong>)</td></tr>
+    <tr><td>RevenueCat / Google Play</td><td>Subscription and payment processing</td><td>Subscription status and receipts, account identifier</td></tr>
     <tr><td>Cloud hosting (server)</td><td>Server operation and data storage</td><td>Account information, subscription status, usage records, device identifiers, generated sentences, exposure history</td></tr>
   </tbody>
 </table>
@@ -102,9 +116,11 @@
 <h2>4. Retention and destruction</h2>
 <ul>
   <li>Personal data stored on the server is retained until you close your account or request deletion, and is destroyed without delay once the purpose is fulfilled or upon request.</li>
-  <li>Sentences sent to Anthropic and OpenAI are processed for grading purposes and are not stored permanently on our server (if grading temporarily fails, an answer is kept briefly in a retry queue and then deleted).</li>
+  <li>Sentences sent to Anthropic (or to OpenAI if you have consented to backup grading) are processed for grading purposes and are not stored permanently on our server (if grading temporarily fails, an answer is kept briefly in a retry queue and then deleted).</li>
   <li>Learning history stored on your device can be removed at any time using the app's delete/reset features or by uninstalling the app.</li>
+  <li><strong>Records of harmful-content reports</strong> are retained for the action history (which sentence was excluded and why) and to detect repeat reports, and are deleted from our server together with your account. However, the copy delivered to the <strong>operator alert channel (Telegram)</strong> at the time of submission remains in that channel (§3) — it is an operational record; if you would like it deleted, please contact us at §10.</li>
   <li>Where applicable law requires retention, data is stored separately for the required period and then destroyed.</li>
+  <li><strong>Minimal retention to prevent abuse</strong>: Even after you delete your account, <strong>(1) refund and resubscription history</strong> (only the device marker and the event type) and <strong>(2) whether the free level test has been used</strong> (only an irreversibly hashed sign-in account identifier) remain. Neither <strong>contains your name, email, or learning content</strong>, neither is used for any other purpose, and they are used solely to prevent repeatedly collecting free benefits or repeating refunds by deleting and recreating an account. These values alone cannot identify you.</li>
 </ul>
 
 <h2>5. Your rights</h2>
@@ -120,7 +136,12 @@
 <p>Encryption in transit (HTTPS), session tokens kept in device secure storage, no password storage (social sign-in), and minimized access privileges.</p>
 
 <h2>8. Advertising</h2>
-<p>We currently display no advertising. If advertising (e.g. Google AdMob) is introduced in the future, the collected items, such as advertising identifiers, will be reflected in this policy and announced in advance.</p>
+<ul>
+  <li><strong>We serve Google AdMob advertising to free users.</strong> No advertising is shown while you have a paid subscription.</li>
+  <li>When ads are served, the <strong>advertising identifier (ad ID)</strong>, device and app information (model, OS version, language, app version), and IP address are <strong>sent to Google</strong>. These values are not collected or stored by the app itself; the <strong>ads SDK includes them in the ad request</strong>, and they are not stored on our server.</li>
+  <li>You can <strong>reset the advertising identifier or turn off personalized ads in your device settings</strong> (Android: Settings → Google → Ads).</li>
+  <li>In the <strong>European Economic Area, the United Kingdom, and other applicable regions</strong>, the app <strong>asks for your consent to advertising and data use</strong> when it starts, and personalized advertising is limited according to your choice. You can change your consent settings again in the app.</li>
+</ul>
 
 <h2>9. Changes to this policy</h2>
 <p>If this policy changes, notice will be given in the app or on a posted page.</p>
