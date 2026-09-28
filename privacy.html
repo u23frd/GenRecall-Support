@@ -30,6 +30,17 @@
   .muted { color: #687080; font-size: 0.9rem; }
   .lang-bar { text-align: right; font-size: 0.9rem; margin-bottom: 18px; }
   .lang-bar select { font: inherit; padding: 3px 6px; }
+  @media (max-width: 600px) {
+    table.xfer thead { display: none; }
+    table.xfer, table.xfer tbody, table.xfer tr, table.xfer td { display: block; width: auto; }
+    table.xfer tr { border: 1px solid #e4e7ec; border-radius: 8px; margin: 0 0 12px; padding: 6px 0; }
+    table.xfer td { border: none !important; padding: 4px 12px; }
+    table.xfer td:first-child { font-weight: 600; }
+    table.xfer td[data-label]::before { content: attr(data-label); display: block; font-size: 0.8rem; color: #687080; }
+  }
+  @media (max-width: 600px) and (prefers-color-scheme: dark) {
+    table.xfer tr { border-color: #2c323c; }
+  }
 </style>
 </head>
 <body>
@@ -118,16 +129,16 @@
 
 <h2>3-1. 개인정보의 국외 이전</h2>
 <p>서비스 제공을 위해 아래와 같이 개인정보를 국외에서 처리·보관합니다(「개인정보 보호법」 제28조의8). 서비스에 꼭 필요한 이전은 이 방침에 공개하는 것으로 알려 드리며, <strong>사용 통계는 앱에서 «켜기»를 고른 경우에만</strong> 이전합니다. 전송은 모두 서비스를 이용하는 시점에 <strong>암호화된 네트워크 통신</strong>으로 이루어집니다.</p>
-<table>
+<table class="xfer">
   <thead><tr><th>이전받는 자(연락처)</th><th>나라</th><th>이전 항목 · 시기</th><th>목적 · 보유 기간</th></tr></thead>
   <tbody>
-    <tr><td>Railway Corporation<br>(privacy@railway.com)</td><td>미국(서버·DB 지역: 미국 서부)</td><td>위 1.의 «서버 저장» 정보 전부 · 앱이 서버와 통신할 때</td><td>서버 운영·데이터 보관 · 아래 4. 보관 및 파기와 같음</td></tr>
-    <tr><td>OpenAI OpCo, LLC<br>(dsar@openai.com)</td><td>미국</td><td>이용자가 작성한 문장·문제 텍스트 · 채점·해설·질문 답변·문제 생성을 요청할 때</td><td>AI 채점·해설·총평·질문 답변·문제 생성 · 오·남용 감시 기록으로 최대 30일(모델 학습에 쓰지 않음)</td></tr>
-    <tr><td>Anthropic PBC<br>(privacy@anthropic.com)</td><td>미국</td><td>이용자가 작성한 문장·문제 텍스트 · 채점·해설·문제 생성을 요청할 때</td><td>AI 채점·해설·문제 생성 · 30일 안에 삭제(이용 정책 위반으로 판정된 경우 최대 2년)</td></tr>
-    <tr><td>Google LLC<br>(<a href="https://support.google.com/policies?p=privpol_privts">개인정보 문의</a>)</td><td>미국 등 Google이 서버를 둔 나라</td><td>로그인 토큰(로그인할 때) · 구독 결제 정보(결제할 때) · 기기 검증 요청(로그인할 때) · 광고 식별자 등 광고 정보(무료 이용자에게 광고가 표시될 때) · <strong>사용 통계(«켜기»를 고른 경우만 · 앱을 쓰는 동안)</strong></td><td>로그인·결제·기기 검증·광고·사용 통계 · 사용 통계는 수집된 지 14개월 뒤 자동 삭제, 그 밖은 Google 방침에 따름</td></tr>
-    <tr><td>RevenueCat, Inc.<br>(compliance@revenuecat.com)</td><td>미국</td><td>구독 상태·영수증, 계정 식별자 · 구독을 결제하거나 확인할 때</td><td>구독·결제 처리 · RevenueCat과의 계약에 따름</td></tr>
-    <tr><td>Telegram Messenger Inc.<br>(Telegram 앱 «설정 › 질문하기»)</td><td>Telegram이 밝히지 않음</td><td>위 3.의 Telegram 전송 데이터 · 피드백·이의제기·신고를 보낼 때</td><td>운영자 실시간 알림 · 운영자가 지울 때까지(삭제 요청 시 삭제 — 아래 4.)</td></tr>
-    <tr><td>650 Industries, Inc.(Expo)<br>(<a href="https://expo.dev/contact">문의 양식</a>)</td><td>미국</td><td>기기 운영체제·앱 버전, 설치별 무작위 번호 · 앱을 켤 때마다</td><td>앱 업데이트 배포 · Expo 방침에 따라 목적에 필요한 동안</td></tr>
+    <tr><td>Railway Corporation<br>(privacy@railway.com)</td><td data-label="나라">미국(서버·DB 지역: 미국 서부)</td><td data-label="이전 항목 · 시기">위 1.의 «서버 저장» 정보 전부 · 앱이 서버와 통신할 때</td><td data-label="목적 · 보유 기간">서버 운영·데이터 보관 · 아래 4. 보관 및 파기와 같음</td></tr>
+    <tr><td>OpenAI OpCo, LLC<br>(dsar@openai.com)</td><td data-label="나라">미국</td><td data-label="이전 항목 · 시기">이용자가 작성한 문장·문제 텍스트 · 채점·해설·질문 답변·문제 생성을 요청할 때</td><td data-label="목적 · 보유 기간">AI 채점·해설·총평·질문 답변·문제 생성 · 오·남용 감시 기록으로 최대 30일(모델 학습에 쓰지 않음)</td></tr>
+    <tr><td>Anthropic PBC<br>(privacy@anthropic.com)</td><td data-label="나라">미국</td><td data-label="이전 항목 · 시기">이용자가 작성한 문장·문제 텍스트 · 채점·해설·문제 생성을 요청할 때</td><td data-label="목적 · 보유 기간">AI 채점·해설·문제 생성 · 30일 안에 삭제(이용 정책 위반으로 판정된 경우 최대 2년)</td></tr>
+    <tr><td>Google LLC<br>(<a href="https://support.google.com/policies?p=privpol_privts">개인정보 문의</a>)</td><td data-label="나라">미국 등 Google이 서버를 둔 나라</td><td data-label="이전 항목 · 시기">로그인 토큰(로그인할 때) · 구독 결제 정보(결제할 때) · 기기 검증 요청(로그인할 때) · 광고 식별자 등 광고 정보(무료 이용자에게 광고가 표시될 때) · <strong>사용 통계(«켜기»를 고른 경우만 · 앱을 쓰는 동안)</strong></td><td data-label="목적 · 보유 기간">로그인·결제·기기 검증·광고·사용 통계 · 사용 통계는 수집된 지 14개월 뒤 자동 삭제, 그 밖은 Google 방침에 따름</td></tr>
+    <tr><td>RevenueCat, Inc.<br>(compliance@revenuecat.com)</td><td data-label="나라">미국</td><td data-label="이전 항목 · 시기">구독 상태·영수증, 계정 식별자 · 구독을 결제하거나 확인할 때</td><td data-label="목적 · 보유 기간">구독·결제 처리 · RevenueCat과의 계약에 따름</td></tr>
+    <tr><td>Telegram Messenger Inc.<br>(Telegram 앱 «설정 › 질문하기»)</td><td data-label="나라">Telegram이 밝히지 않음</td><td data-label="이전 항목 · 시기">위 3.의 Telegram 전송 데이터 · 피드백·이의제기·신고를 보낼 때</td><td data-label="목적 · 보유 기간">운영자 실시간 알림 · 운영자가 지울 때까지(삭제 요청 시 삭제 — 아래 4.)</td></tr>
+    <tr><td>650 Industries, Inc.(Expo)<br>(<a href="https://expo.dev/contact">문의 양식</a>)</td><td data-label="나라">미국</td><td data-label="이전 항목 · 시기">기기 운영체제·앱 버전, 설치별 무작위 번호 · 앱을 켤 때마다</td><td data-label="목적 · 보유 기간">앱 업데이트 배포 · Expo 방침에 따라 목적에 필요한 동안</td></tr>
   </tbody>
 </table>
 <p><strong>거부하는 방법과 그 효과</strong>: 서비스에 꼭 필요한 이전(사용 통계를 뺀 나머지)을 원하지 않으시면 서비스 이용을 멈추고 계정을 삭제하실 수 있습니다(위 «계정 및 데이터 삭제 요청»). 이 경우 서비스를 이용할 수 없습니다. <strong>사용 통계</strong>는 켜지 않거나 설정 › 계정 › «사용 통계 보내기»를 끄면 이전되지 않으며, 거부해도 모든 기능을 그대로 쓸 수 있습니다.</p>

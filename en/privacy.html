@@ -38,6 +38,17 @@
     border: 1px solid #e4e7ec; background: #f4f5f7; border-radius: 8px;
     padding: 12px 14px; font-size: 0.9rem; color: #687080; margin: 0 0 24px;
   }
+  @media (max-width: 600px) {
+    table.xfer thead { display: none; }
+    table.xfer, table.xfer tbody, table.xfer tr, table.xfer td { display: block; width: auto; }
+    table.xfer tr { border: 1px solid #e4e7ec; border-radius: 8px; margin: 0 0 12px; padding: 6px 0; }
+    table.xfer td { border: none !important; padding: 4px 12px; }
+    table.xfer td:first-child { font-weight: 600; }
+    table.xfer td[data-label]::before { content: attr(data-label); display: block; font-size: 0.8rem; color: #687080; }
+  }
+  @media (max-width: 600px) and (prefers-color-scheme: dark) {
+    table.xfer tr { border-color: #2c323c; }
+  }
 </style>
 </head>
 <body>
@@ -128,16 +139,16 @@
 
 <h2>3-1. International transfers of personal data</h2>
 <p>To provide the Service, we process and store personal data outside the Republic of Korea as set out below (Article 28-8 of the Personal Information Protection Act). Transfers that are necessary to provide the Service are disclosed through this policy, and <strong>usage statistics are transferred only if you choose “Turn on” in the app</strong>. All transfers take place over <strong>encrypted network connections</strong> at the time you use the Service.</p>
-<table>
+<table class="xfer">
   <thead><tr><th>Recipient (contact)</th><th>Country</th><th>Data transferred · when</th><th>Purpose · retention period</th></tr></thead>
   <tbody>
-    <tr><td>Railway Corporation<br>(privacy@railway.com)</td><td>United States (server and database region: US West)</td><td>All data marked “stored on server” in 1. above · whenever the app communicates with the server</td><td>Server operation and data storage · same as 4. Retention and destruction below</td></tr>
-    <tr><td>OpenAI OpCo, LLC<br>(dsar@openai.com)</td><td>United States</td><td>Sentences you write and task text · when grading, explanations, answers to your questions, or task generation are requested</td><td>AI grading, explanations, level test reports, answers to your questions, task generation · kept as abuse-monitoring logs for up to 30 days (not used to train models)</td></tr>
-    <tr><td>Anthropic PBC<br>(privacy@anthropic.com)</td><td>United States</td><td>Sentences you write and task text · when grading, explanations, or task generation are requested</td><td>AI grading, explanations, task generation · deleted within 30 days (up to 2 years if flagged as violating the usage policy)</td></tr>
-    <tr><td>Google LLC<br>(<a href="https://support.google.com/policies?p=privpol_privts">privacy contact</a>)</td><td>United States and other countries where Google has servers</td><td>Sign-in token (when you sign in) · subscription payment information (when you pay) · device verification request (when you sign in) · ad information such as the advertising identifier (when ads are shown to free users) · <strong>usage statistics (only if turned on · while you use the app)</strong></td><td>Sign-in, payments, device verification, advertising, usage statistics · usage statistics are deleted automatically 14 months after collection; everything else follows Google's policy</td></tr>
-    <tr><td>RevenueCat, Inc.<br>(compliance@revenuecat.com)</td><td>United States</td><td>Subscription status and receipts, account identifier · when you pay for or check a subscription</td><td>Subscription and payment processing · per our agreement with RevenueCat</td></tr>
-    <tr><td>Telegram Messenger Inc.<br>(Telegram app “Settings › Ask a Question”)</td><td>Not disclosed by Telegram</td><td>The Telegram data listed in 3. above · when you send feedback, a grading appeal, or a report</td><td>Real-time operator alerts · until the operator deletes it (deleted on request — see 4. below)</td></tr>
-    <tr><td>650 Industries, Inc. (Expo)<br>(<a href="https://expo.dev/contact">contact form</a>)</td><td>United States</td><td>Device operating system and app version, per-installation random number · each time you open the app</td><td>Delivering app updates · as long as necessary for that purpose, per Expo's policy</td></tr>
+    <tr><td>Railway Corporation<br>(privacy@railway.com)</td><td data-label="Country">United States (server and database region: US West)</td><td data-label="Data transferred · when">All data marked “stored on server” in 1. above · whenever the app communicates with the server</td><td data-label="Purpose · retention period">Server operation and data storage · same as 4. Retention and destruction below</td></tr>
+    <tr><td>OpenAI OpCo, LLC<br>(dsar@openai.com)</td><td data-label="Country">United States</td><td data-label="Data transferred · when">Sentences you write and task text · when grading, explanations, answers to your questions, or task generation are requested</td><td data-label="Purpose · retention period">AI grading, explanations, level test reports, answers to your questions, task generation · kept as abuse-monitoring logs for up to 30 days (not used to train models)</td></tr>
+    <tr><td>Anthropic PBC<br>(privacy@anthropic.com)</td><td data-label="Country">United States</td><td data-label="Data transferred · when">Sentences you write and task text · when grading, explanations, or task generation are requested</td><td data-label="Purpose · retention period">AI grading, explanations, task generation · deleted within 30 days (up to 2 years if flagged as violating the usage policy)</td></tr>
+    <tr><td>Google LLC<br>(<a href="https://support.google.com/policies?p=privpol_privts">privacy contact</a>)</td><td data-label="Country">United States and other countries where Google has servers</td><td data-label="Data transferred · when">Sign-in token (when you sign in) · subscription payment information (when you pay) · device verification request (when you sign in) · ad information such as the advertising identifier (when ads are shown to free users) · <strong>usage statistics (only if turned on · while you use the app)</strong></td><td data-label="Purpose · retention period">Sign-in, payments, device verification, advertising, usage statistics · usage statistics are deleted automatically 14 months after collection; everything else follows Google's policy</td></tr>
+    <tr><td>RevenueCat, Inc.<br>(compliance@revenuecat.com)</td><td data-label="Country">United States</td><td data-label="Data transferred · when">Subscription status and receipts, account identifier · when you pay for or check a subscription</td><td data-label="Purpose · retention period">Subscription and payment processing · per our agreement with RevenueCat</td></tr>
+    <tr><td>Telegram Messenger Inc.<br>(Telegram app “Settings › Ask a Question”)</td><td data-label="Country">Not disclosed by Telegram</td><td data-label="Data transferred · when">The Telegram data listed in 3. above · when you send feedback, a grading appeal, or a report</td><td data-label="Purpose · retention period">Real-time operator alerts · until the operator deletes it (deleted on request — see 4. below)</td></tr>
+    <tr><td>650 Industries, Inc. (Expo)<br>(<a href="https://expo.dev/contact">contact form</a>)</td><td data-label="Country">United States</td><td data-label="Data transferred · when">Device operating system and app version, per-installation random number · each time you open the app</td><td data-label="Purpose · retention period">Delivering app updates · as long as necessary for that purpose, per Expo's policy</td></tr>
   </tbody>
 </table>
 <p><strong>How to refuse, and what happens if you do</strong>: If you do not want the transfers that are necessary to provide the Service (everything except usage statistics), you can stop using the Service and delete your account (see “Account and data deletion requests” above). In that case you will not be able to use the Service. <strong>Usage statistics</strong> are not transferred if you do not turn them on or if you turn off Settings › Account › “Send usage statistics”, and you can still use every feature if you refuse.</p>
